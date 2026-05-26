@@ -1,4 +1,3 @@
-import { CircleHelp } from "lucide-react";
 import { PageHero } from "@/components/page-hero";
 import { faqs, industrialImages } from "@/lib/content";
 
@@ -18,7 +17,7 @@ export default function FaqPage() {
           {faqs.map((faq) => (
             <div key={faq.question} className="glass-panel rounded-lg p-6">
               <h2 className="flex gap-3 text-xl font-semibold">
-                <CircleHelp className="mt-1 size-5 shrink-0 text-primary" />
+                <span className="mt-1 shrink-0 font-mono text-primary">?</span>
                 {faq.question}
               </h2>
               <p className="mt-4 leading-7 text-muted-foreground">{faq.answer}</p>

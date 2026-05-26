@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import { CalendarDays, IndianRupee, MapPin, Wrench } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { getProjectBySlug, getProjects } from "@/lib/repositories";
@@ -82,10 +81,10 @@ export default async function ProjectDetailPage({
         <aside className="h-fit rounded-lg border border-white/10 bg-card/45 p-6">
           <h2 className="text-xl font-semibold">Project facts</h2>
           <div className="mt-6 grid gap-5 text-sm">
-            <p className="flex gap-3"><MapPin className="size-5 text-primary" /> {project.location}</p>
-            <p className="flex gap-3"><CalendarDays className="size-5 text-primary" /> {project.timeline}</p>
-            <p className="flex gap-3"><IndianRupee className="size-5 text-primary" /> {project.projectValue}</p>
-            <p className="flex gap-3"><Wrench className="size-5 text-primary" /> {project.industry}</p>
+            <p className="flex gap-3"><span className="font-mono text-primary">[ LOC ]</span> {project.location}</p>
+            <p className="flex gap-3"><span className="font-mono text-primary">[ TIME ]</span> {project.timeline}</p>
+            <p className="flex gap-3"><span className="font-mono text-primary">[ INR ]</span> {project.projectValue}</p>
+            <p className="flex gap-3"><span className="font-mono text-primary">[ TYPE ]</span> {project.industry}</p>
           </div>
           <Separator className="my-6" />
           <div className="flex flex-wrap gap-2">
@@ -98,4 +97,3 @@ export default async function ProjectDetailPage({
     </>
   );
 }
-

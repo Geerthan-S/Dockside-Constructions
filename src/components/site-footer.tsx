@@ -1,45 +1,57 @@
 import Link from "next/link";
-import { Building2, Mail, MapPin, Phone } from "lucide-react";
+import { getProjects } from "@/lib/repositories";
 
-export function SiteFooter() {
+export async function SiteFooter() {
+  const projects = await getProjects();
+
   return (
-    <footer className="border-t border-white/10 bg-card/40">
-      <div className="mx-auto grid max-w-7xl gap-10 px-4 py-12 sm:px-6 lg:grid-cols-[1.4fr_1fr_1fr] lg:px-8">
+    <footer className="industrial-footer">
+      <div className="industrial-footer__grid">
         <div>
-          <div className="flex items-center gap-3">
-            <span className="flex size-11 items-center justify-center rounded-md border border-primary/25 bg-primary/10">
-              <Building2 className="size-5 text-primary" />
-            </span>
-            <div>
-              <p className="font-semibold">Dockside Constructions Private Limited</p>
-              <p className="text-sm text-muted-foreground">Engineering-led construction delivery</p>
-            </div>
-          </div>
-          <p className="mt-5 max-w-xl text-sm leading-6 text-muted-foreground">
-            Premium corporate construction partner for industrial campuses, port-side
-            infrastructure, logistics assets and mission-critical civil works.
+          <Link href="/" className="industrial-wordmark industrial-wordmark--footer">
+            <span>DOCKSIDE</span>
+            <i />
+            <em>CONSTRUCTIONS PVT. LTD.</em>
+          </Link>
+          <p className="industrial-footer__tagline">
+            Engineering-led construction for ports, logistics parks, manufacturing campuses
+            and critical infrastructure.
           </p>
-        </div>
-        <div>
-          <p className="font-medium">Company</p>
-          <div className="mt-4 grid gap-3 text-sm text-muted-foreground">
-            <Link href="/about">About</Link>
-            <Link href="/projects">Projects</Link>
-            <Link href="/careers">Careers</Link>
-            <Link href="/contact">Contact</Link>
+          <div className="iso-cluster" aria-label="Certification badges">
+            {["9001", "14001", "45001"].map((iso) => (
+              <span key={iso}>ISO<br />{iso}</span>
+            ))}
           </div>
         </div>
         <div>
-          <p className="font-medium">Corporate Office</p>
-          <div className="mt-4 grid gap-3 text-sm text-muted-foreground">
-            <span className="flex gap-2"><MapPin className="mt-0.5 size-4" /> Mumbai, Maharashtra</span>
-            <span className="flex gap-2"><Phone className="mt-0.5 size-4" /> +91 22 4000 1188</span>
-            <span className="flex gap-2"><Mail className="mt-0.5 size-4" /> projects@docksideconstructions.com</span>
-          </div>
+          <h3>COMPANY</h3>
+          <Link href="/about">About</Link>
+          <Link href="/services">Services</Link>
+          <Link href="/careers">Careers</Link>
+          <Link href="/contact">Contact</Link>
+        </div>
+        <div>
+          <h3>PROJECTS</h3>
+          {projects.slice(0, 4).map((project) => (
+            <Link key={project.id} href={`/projects/${project.slug}`}>
+              {project.title}
+            </Link>
+          ))}
+        </div>
+        <div>
+          <h3>CONTACT</h3>
+          <address>
+            Corporate Office<br />
+            Mumbai, Maharashtra<br />
+            India
+          </address>
+          <strong>+91 22 4000 1188</strong>
+          <a href="mailto:projects@docksideconstructions.com">projects@docksideconstructions.com</a>
         </div>
       </div>
-      <div className="border-t border-white/10 px-4 py-5 text-center text-xs text-muted-foreground">
-        © 2026 Dockside Constructions Private Limited. All rights reserved.
+      <div className="industrial-footer__bar">
+        <span>© 2026 DOCKSIDE CONSTRUCTIONS PRIVATE LIMITED</span>
+        <span>BUILT FOR INDIA&apos;S INFRASTRUCTURE FUTURE</span>
       </div>
     </footer>
   );

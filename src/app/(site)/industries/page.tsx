@@ -1,4 +1,3 @@
-import { Factory } from "lucide-react";
 import { PageHero } from "@/components/page-hero";
 import { industries, industrialImages } from "@/lib/content";
 
@@ -16,7 +15,7 @@ export default function IndustriesPage() {
       <section className="mx-auto grid max-w-7xl gap-5 px-4 py-20 sm:px-6 md:grid-cols-2 lg:grid-cols-3 lg:px-8">
         {industries.map((industry) => (
           <div key={industry} className="rounded-lg border border-white/10 bg-card/45 p-7">
-            <Factory className="mb-6 size-7 text-primary" />
+            <span className="mb-6 block font-mono text-primary">[ SECTOR ]</span>
             <h2 className="text-2xl font-semibold">{industry}</h2>
             <p className="mt-4 text-sm leading-6 text-muted-foreground">
               Sector-specific project controls, site logistics and stakeholder reporting for capital-intensive programs.
@@ -27,4 +26,3 @@ export default function IndustriesPage() {
     </>
   );
 }
-

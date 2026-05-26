@@ -1,4 +1,3 @@
-import { ShieldCheck } from "lucide-react";
 import { PageHero } from "@/components/page-hero";
 import { certifications, industrialImages } from "@/lib/content";
 
@@ -17,7 +16,7 @@ export default function SafetyPage() {
         <div className="grid gap-5">
           {certifications.map((certification) => (
             <div key={certification} className="flex gap-5 rounded-lg border border-white/10 bg-card/45 p-6">
-              <ShieldCheck className="mt-1 size-6 shrink-0 text-primary" />
+              <span className="mt-1 shrink-0 font-mono text-primary">[ ISO ]</span>
               <div>
                 <h2 className="text-xl font-semibold">{certification}</h2>
                 <p className="mt-2 text-sm leading-6 text-muted-foreground">
@@ -31,4 +30,3 @@ export default function SafetyPage() {
     </>
   );
 }
-

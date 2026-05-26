@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { PageHero } from "@/components/page-hero";
 import { industrialImages } from "@/lib/content";
@@ -23,7 +22,7 @@ export default function CareersPage() {
               <div key={role} className="flex items-center justify-between gap-4 rounded-md border border-white/10 p-4">
                 <span>{role}</span>
                 <Button asChild variant="ghost">
-                  <Link href="/contact">Apply <ArrowRight className="size-4" /></Link>
+                  <Link href="/contact">Apply →</Link>
                 </Button>
               </div>
             ))}
@@ -33,4 +32,3 @@ export default function CareersPage() {
     </>
   );
 }
-

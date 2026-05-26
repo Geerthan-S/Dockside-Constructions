@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { Award, CheckCircle2, Crown, Target } from "lucide-react";
 import { PageHero } from "@/components/page-hero";
 import { certifications, industrialImages } from "@/lib/content";
 
@@ -25,7 +24,7 @@ export default function AboutPage() {
           <div className="mt-8 grid gap-4">
             {["Integrated planning", "Safety-led execution", "Quality gates", "Procurement discipline"].map((item) => (
               <p key={item} className="flex items-center gap-3 text-muted-foreground">
-                <CheckCircle2 className="size-5 text-primary" />
+                <span className="text-primary">◆</span>
                 {item}
               </p>
             ))}
@@ -38,14 +37,14 @@ export default function AboutPage() {
       <section id="vision-mission" className="border-y border-white/10 bg-card/20 py-20">
         <div className="mx-auto grid max-w-7xl gap-5 px-4 sm:px-6 md:grid-cols-2 lg:px-8">
           <div className="glass-panel rounded-lg p-8">
-            <Target className="size-7 text-primary" />
+            <span className="font-mono text-primary">[ V ]</span>
             <h2 className="mt-6 text-3xl font-semibold">Vision</h2>
             <p className="mt-4 leading-7 text-muted-foreground">
               To become the most trusted engineering-led construction company for clients who demand performance, transparency and long-term asset value.
             </p>
           </div>
           <div className="glass-panel rounded-lg p-8">
-            <Crown className="size-7 text-primary" />
+            <span className="font-mono text-primary">[ M ]</span>
             <h2 className="mt-6 text-3xl font-semibold">Mission</h2>
             <p className="mt-4 leading-7 text-muted-foreground">
               Deliver residential, commercial, industrial and infrastructure projects through disciplined planning, skilled teams and uncompromising safety systems.
@@ -69,12 +68,12 @@ export default function AboutPage() {
       </section>
       <section id="certifications" className="mx-auto max-w-5xl px-4 pb-20 sm:px-6 lg:px-8">
         <div className="glass-panel rounded-lg p-8">
-          <Award className="size-8 text-primary" />
+          <span className="font-mono text-primary">[ ISO ]</span>
           <h2 className="mt-6 text-3xl font-semibold">Certifications</h2>
           <div className="mt-6 grid gap-4">
             {certifications.map((item) => (
               <p key={item} className="flex items-center gap-3 text-muted-foreground">
-                <CheckCircle2 className="size-5 text-primary" />
+                <span className="text-primary">◆</span>
                 {item}
               </p>
             ))}

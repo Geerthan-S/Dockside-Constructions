@@ -1,5 +1,4 @@
 import { redirect } from "next/navigation";
-import { Instagram, Linkedin, Mail, MapPin, MessageCircle, Phone } from "lucide-react";
 import { z } from "zod";
 import { PageHero } from "@/components/page-hero";
 import { Button } from "@/components/ui/button";
@@ -40,14 +39,14 @@ export default function ContactPage() {
         <div className="glass-panel rounded-lg p-8">
           <h2 className="text-3xl font-semibold">Corporate office</h2>
           <div className="mt-8 grid gap-5 text-muted-foreground">
-            <p className="flex gap-3"><MapPin className="size-5 text-primary" /> Mumbai, Maharashtra, India</p>
-            <p className="flex gap-3"><Phone className="size-5 text-primary" /> +91 22 4000 1188</p>
-            <p id="mail" className="flex gap-3"><Mail className="size-5 text-primary" /> projects@docksideconstructions.com</p>
-            <p id="whatsapp" className="flex gap-3"><MessageCircle className="size-5 text-primary" /> WhatsApp: +91 98765 43210</p>
+            <p className="flex gap-3"><span className="font-mono text-primary">[ LOC ]</span> Mumbai, Maharashtra, India</p>
+            <p className="flex gap-3"><span className="font-mono text-primary">[ TEL ]</span> +91 22 4000 1188</p>
+            <p id="mail" className="flex gap-3"><span className="font-mono text-primary">[ MAIL ]</span> projects@docksideconstructions.com</p>
+            <p id="whatsapp" className="flex gap-3"><span className="font-mono text-primary">[ WA ]</span> WhatsApp: +91 98765 43210</p>
           </div>
           <div id="socials" className="mt-8 flex gap-3">
-            <a className="glass-panel-soft rounded-md p-3" href="#" aria-label="LinkedIn"><Linkedin className="size-5" /></a>
-            <a className="glass-panel-soft rounded-md p-3" href="#" aria-label="Instagram"><Instagram className="size-5" /></a>
+            <a className="glass-panel-soft rounded-md p-3 font-mono text-xs" href="#" aria-label="LinkedIn">LINKEDIN</a>
+            <a className="glass-panel-soft rounded-md p-3 font-mono text-xs" href="#" aria-label="Instagram">INSTAGRAM</a>
           </div>
         </div>
         <form id="inquiry-form" action={submitContact} className="glass-panel grid gap-5 rounded-lg p-8">

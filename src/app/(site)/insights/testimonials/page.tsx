@@ -1,4 +1,3 @@
-import { Quote } from "lucide-react";
 import { PageHero } from "@/components/page-hero";
 import { industrialImages } from "@/lib/content";
 import { getProjects } from "@/lib/repositories";
@@ -22,7 +21,7 @@ export default async function TestimonialsPublicPage() {
       <section className="mx-auto grid max-w-7xl gap-5 px-4 py-20 sm:px-6 md:grid-cols-2 lg:px-8">
         {testimonials.map((item) => (
           <div key={`${item.company}-${item.personName}`} className="glass-panel rounded-lg p-7">
-            <Quote className="size-7 text-primary" />
+            <span className="font-mono text-primary">[ QUOTE ]</span>
             <p className="mt-6 text-xl leading-8">“{item.quote}”</p>
             <p className="mt-5 text-sm text-muted-foreground">
               {item.personName}, {item.designation}, {item.company}
@@ -33,4 +32,3 @@ export default async function TestimonialsPublicPage() {
     </>
   );
 }
-

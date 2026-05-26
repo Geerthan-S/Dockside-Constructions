@@ -1,5 +1,4 @@
 import { notFound } from "next/navigation";
-import { HardHat } from "lucide-react";
 import { PageHero } from "@/components/page-hero";
 import { industrialImages, serviceCategories } from "@/lib/content";
 
@@ -26,7 +25,7 @@ export default async function ServiceDetailPage({
       />
       <section className="mx-auto max-w-5xl px-4 py-20 sm:px-6 lg:px-8">
         <div className="glass-panel rounded-lg p-8">
-          <HardHat className="size-8 text-primary" />
+          <span className="font-mono text-primary">[ WORK ]</span>
           <h2 className="mt-6 text-3xl font-semibold">Delivery Method</h2>
           <p className="mt-5 leading-7 text-muted-foreground">
             Dockside manages {service.title.toLowerCase()} work through planning workshops,

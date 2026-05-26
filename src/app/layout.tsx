@@ -1,15 +1,25 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Bebas_Neue, DM_Mono, Lora } from "next/font/google";
+import { Cursor } from "@/components/ui/Cursor";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const bebasNeue = Bebas_Neue({
+  weight: "400",
+  variable: "--font-bebas-neue",
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const dmMono = DM_Mono({
+  weight: ["400", "500"],
+  variable: "--font-dm-mono",
+  subsets: ["latin"],
+});
+
+const lora = Lora({
+  weight: ["400", "600"],
+  style: ["normal", "italic"],
+  variable: "--font-lora",
   subsets: ["latin"],
 });
 
@@ -45,9 +55,10 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} dark h-full antialiased`}
+      className={`${bebasNeue.variable} ${dmMono.variable} ${lora.variable} dark h-full antialiased`}
     >
       <body className="flex min-h-full flex-col">
+        <Cursor />
         <TooltipProvider>{children}</TooltipProvider>
       </body>
     </html>
