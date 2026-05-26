@@ -18,11 +18,16 @@ export function Projects({ projects }: { projects: ProjectView[] }) {
             </em>
           </div>
           <div className="studio-project-card__image">
-            <Image src={project.featuredImage} alt={project.title} fill sizes="(min-width: 900px) 50vw, 100vw" />
+            <Image
+              src={project.featuredImage}
+              alt={project.title}
+              fill
+              sizes="(min-width: 900px) 50vw, 100vw"
+            />
           </div>
           <h3>{project.title}</h3>
-          <p>{project.location} — {project.projectValue}</p>
-          <i>→</i>
+          <p>{project.location} - {project.projectValue}</p>
+          <i>-&gt;</i>
         </Link>
       ))}
     </section>
