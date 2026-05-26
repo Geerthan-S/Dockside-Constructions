@@ -1,29 +1,30 @@
 import Image from "next/image";
 import Link from "next/link";
-import { SplitText } from "@/components/ui/SplitText";
 import { industrialImages } from "@/lib/content";
 
 export function Hero() {
   return (
     <section className="studio-hero">
       <div className="studio-hero__copy">
-        <p className="studio-label">[ EPC & INDUSTRIAL CONSTRUCTION ]</p>
+        <p className="studio-label">EPC | INDUSTRIAL | MARINE INFRASTRUCTURE</p>
         <h1>
-          <SplitText text="BUILT TO" />
-          <SplitText text="WITHSTAND." />
+          <span>Dockside Constructions </span>
+          <span>Private Limited</span>
         </h1>
         <i className="studio-rule" />
         <p className="studio-hero__text">
-          Engineering-led construction for ports, logistics parks, industrial campuses
-          and critical infrastructure. 25 years of execution discipline.
+          A premium construction partner for ports, logistics parks, industrial
+          campuses, manufacturing facilities and critical infrastructure across India.
         </p>
         <div className="studio-hero__actions">
-          <Link href="/projects" className="studio-button studio-button--fill">VIEW PROJECTS</Link>
-          <Link href="/get-quote" className="studio-link">REQUEST A QUOTE →</Link>
+          <Link href="/projects" className="studio-button studio-button--fill">View Portfolio</Link>
+          <Link href="/get-quote" className="studio-button studio-button--outline">Request Proposal</Link>
         </div>
-        <div className="studio-ticker">
-          <span>[ DEEPWATER BERTHS ] — [ MANUFACTURING CAMPUSES ] — [ COLD CHAIN HUBS ] — [ EPC DELIVERY ] — </span>
-          <span>[ DEEPWATER BERTHS ] — [ MANUFACTURING CAMPUSES ] — [ COLD CHAIN HUBS ] — [ EPC DELIVERY ] — </span>
+        <div className="studio-capability-strip">
+          <span>ISO-led systems</span>
+          <span>Program governance</span>
+          <span>Safety-first delivery</span>
+          <span>Client-ready documentation</span>
         </div>
       </div>
       <div className="studio-hero__image">
@@ -43,4 +44,3 @@ export function Hero() {
     </section>
   );
 }
-

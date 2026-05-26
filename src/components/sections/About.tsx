@@ -5,12 +5,12 @@ export function About() {
     <section className="studio-section studio-about">
       <SectionLabel value="02 / COMPANY" />
       <div className="studio-section__content">
-        <h2>ENGINEERING DISCIPLINE OVER DEVELOPER DEPENDENCY.</h2>
+        <h2>ENGINEERING DISCIPLINE FOR COMPLEX CONSTRUCTION.</h2>
         <div className="studio-about__text">
           <p>
             Dockside combines civil engineering, procurement discipline, safety governance
-            and digital project controls to deliver complex construction programs without
-            developer dependency for ongoing content operations.
+            and digital project controls to deliver complex construction programs with
+            clear accountability from planning to handover.
           </p>
           <p>
             We operate as a corporate construction partner for owners who need clarity:
@@ -27,4 +27,3 @@ export function About() {
     </section>
   );
 }
-

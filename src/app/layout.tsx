@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Bebas_Neue, DM_Mono, Lora } from "next/font/google";
-import { Cursor } from "@/components/ui/Cursor";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import "./globals.css";
 
@@ -58,7 +57,6 @@ export default function RootLayout({
       className={`${bebasNeue.variable} ${dmMono.variable} ${lora.variable} dark h-full antialiased`}
     >
       <body className="flex min-h-full flex-col">
-        <Cursor />
         <TooltipProvider>{children}</TooltipProvider>
       </body>
     </html>
