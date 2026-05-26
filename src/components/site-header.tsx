@@ -23,6 +23,17 @@ export function SiteHeader() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  useEffect(() => {
+    const desktopQuery = window.matchMedia("(min-width: 981px)");
+    const closeOnDesktop = () => {
+      if (desktopQuery.matches) setOpen(false);
+    };
+
+    closeOnDesktop();
+    desktopQuery.addEventListener("change", closeOnDesktop);
+    return () => desktopQuery.removeEventListener("change", closeOnDesktop);
+  }, []);
+
   return (
     <header className={`industrial-nav ${scrolled ? "is-scrolled" : ""}`}>
       <Link href="/" className="industrial-wordmark" aria-label="Dockside home">
@@ -66,4 +77,3 @@ export function SiteHeader() {
     </header>
   );
 }
-
