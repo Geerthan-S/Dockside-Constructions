@@ -29,18 +29,19 @@ export const metadata: Metadata = {
     template: "%s | Dockside Constructions",
   },
   description:
-    "Premium EPC, industrial, marine and corporate construction company delivering engineering-led infrastructure projects.",
+    "Dockside Constructions Private Limited is an infrastructure and construction company delivering civil, industrial, road, electrical, drainage and public-sector works.",
   keywords: [
     "Dockside Constructions",
-    "EPC construction",
+    "civil construction",
     "industrial construction",
-    "marine civil works",
-    "infrastructure company India",
+    "road infrastructure",
+    "electrical works",
+    "infrastructure company Tamil Nadu",
   ],
   openGraph: {
     title: "Dockside Constructions Private Limited",
     description:
-      "Engineering-led construction for ports, industrial campuses, logistics hubs and critical infrastructure.",
+      "Building infrastructure, delivering excellence and creating value across industrial, commercial and public sectors.",
     type: "website",
     images: ["/og-image.jpg"],
   },

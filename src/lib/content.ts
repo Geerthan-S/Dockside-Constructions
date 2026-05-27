@@ -65,110 +65,128 @@ export const industrialImages = {
 
 export const serviceCategories = [
   {
-    title: "Residential",
-    slug: "residential",
+    title: "Civil Construction",
+    slug: "civil-construction",
     description:
-      "Premium villas, apartments and gated communities with reliable execution controls.",
+      "Residential, commercial and industrial civil works executed with QA/QC controls, site supervision and disciplined handover documentation.",
   },
   {
-    title: "Commercial",
-    slug: "commercial",
+    title: "Roads & Highways",
+    slug: "roads-highways",
     description:
-      "Corporate offices, retail shells, mixed-use assets and business campuses.",
+      "BT and CC roads, strengthening, renewal, grading, drainage integration and infrastructure development works.",
   },
   {
-    title: "Industrial",
-    slug: "industrial",
+    title: "Railway Works",
+    slug: "railway-works",
     description:
-      "Factories, warehouses, logistics hubs, PEB systems and process-ready buildings.",
+      "Railway siding and related infrastructure support for industrial campuses and logistics-linked developments.",
   },
   {
-    title: "Renovation",
-    slug: "renovation",
+    title: "Electrical Works",
+    slug: "electrical-works",
     description:
-      "Phased upgrades, brownfield improvements and live-site refurbishment.",
+      "HT/LT installations, electrical utilities, fire hydrant pipeline interfaces and coordinated MEP execution.",
   },
   {
-    title: "Interior",
-    slug: "interior",
+    title: "Industrial Projects",
+    slug: "industrial-projects",
     description:
-      "Corporate interiors, fit-outs, finishes and high-performance workspace delivery.",
+      "Warehouses, factories, PEB structures, mezzanine floors, hazardous storage sheds, renovations and process-ready buildings.",
   },
   {
-    title: "Infrastructure",
-    slug: "infrastructure",
+    title: "Water Infrastructure & Drainage",
+    slug: "water-infrastructure-drainage",
     description:
-      "Roads, yards, utilities, drainage, marine interfaces and public infrastructure.",
+      "Storm water drains, culverts, drainage systems, water management works and allied civil infrastructure.",
   },
   {
-    title: "Electrical & Structural",
-    slug: "electrical-structural",
+    title: "Road Safety & Traffic Systems",
+    slug: "road-safety-traffic-systems",
     description:
-      "Structural systems, MEP coordination, electrical works and engineering retrofits.",
+      "Supply and installation of road safety equipment, signage, barriers, road markings and traffic control solutions.",
   },
 ];
 
 export const services = serviceCategories.map((service) => service.title);
 
 export const industries = [
-  "Ports & logistics",
+  "Industrial manufacturing",
+  "Public works",
+  "Road infrastructure",
   "Manufacturing",
   "Warehousing",
-  "Energy & utilities",
+  "Logistics parks",
   "Commercial campuses",
-  "Public infrastructure",
+  "Government infrastructure",
 ];
 
 export const certifications = [
-  "ISO 9001 Quality Management",
-  "ISO 14001 Environmental Management",
-  "ISO 45001 Occupational Health & Safety",
-  "Zero Harm safety governance",
+  "ISO 9001:2015 Quality Management System - Certificate QT-56856/1025",
+  "ISO 14001:2015 Environmental Management System - Certificate ET-56857/1025",
+  "ISO 45001:2018 Occupational Health & Safety Management System - Certificate HT-56858/1025",
+  "Scope includes roads, buildings, interior designing, project management consultancy, plumbing, piping, electrification, GIS mapping, survey, fabrication, earth moving, structural and piling engineering works.",
 ];
 
 export const seedClients: ClientView[] = [
   {
     id: "client-1",
-    name: "Apex Ports",
-    slug: "apex-ports",
-    industry: "Ports & logistics",
-    website: "https://example.com",
+    name: "Whirlpool of India Ltd",
+    slug: "whirlpool-of-india",
+    industry: "Industrial manufacturing",
     testimonial:
-      "Disciplined planning and transparent reporting across a constrained port environment.",
+      "20+ executed works covering warehouse, packaging lab, reliability lab, fire hydrant pipeline, mezzanine, civil, electrical and interior scopes.",
     featured: true,
   },
   {
     id: "client-2",
-    name: "Orbit Steel",
-    slug: "orbit-steel",
-    industry: "Manufacturing",
-    website: "https://example.com",
+    name: "Public Works Department, Puducherry",
+    slug: "pwd-puducherry",
+    industry: "Public infrastructure",
     testimonial:
-      "Strong engineering coordination that protected the construction schedule.",
+      "15+ works across road strengthening, renewal, BT and CC road formation, drainage and infrastructure works.",
     featured: true,
   },
   {
     id: "client-3",
-    name: "Nexus Logistics",
-    slug: "nexus-logistics",
-    industry: "Warehousing",
-    website: "https://example.com",
+    name: "Lodha Industrial Park",
+    slug: "lodha-industrial-park",
+    industry: "Logistics parks",
     featured: true,
   },
   {
     id: "client-4",
-    name: "Bluegrid Energy",
-    slug: "bluegrid-energy",
-    industry: "Energy & utilities",
-    website: "https://example.com",
+    name: "Adani Logistics Limited",
+    slug: "adani-logistics-limited",
+    industry: "Logistics",
     featured: true,
   },
   {
     id: "client-5",
-    name: "Southline Infra",
-    slug: "southline-infra",
-    industry: "Public infrastructure",
-    website: "https://example.com",
+    name: "Chennai One IT SEZ",
+    slug: "chennai-one-it-sez",
+    industry: "Commercial campus",
+    featured: true,
+  },
+  {
+    id: "client-6",
+    name: "Anabond Limited",
+    slug: "anabond-limited",
+    industry: "Industrial manufacturing",
+    featured: true,
+  },
+  {
+    id: "client-7",
+    name: "Akshaya Patra Foundation",
+    slug: "akshaya-patra-foundation",
+    industry: "Institutional infrastructure",
+    featured: true,
+  },
+  {
+    id: "client-8",
+    name: "Godrej Consumer Products Ltd",
+    slug: "godrej-consumer-products",
+    industry: "FMCG manufacturing",
     featured: true,
   },
 ];
@@ -179,7 +197,7 @@ export const faqs = [
   {
     question: "Can Dockside handle design-build execution?",
     answer:
-      "Yes. Dockside supports design-build planning, structural coordination, vendor alignment and milestone governance.",
+      "Yes. Dockside supports architectural design, project management consultancy, structural coordination, vendor alignment and milestone governance.",
   },
   {
     question: "Can admins update projects without developers?",
@@ -189,98 +207,124 @@ export const faqs = [
   {
     question: "Do you support residential and commercial work?",
     answer:
-      "Yes. The services structure includes residential, commercial, industrial, renovation, interior, infrastructure, and electrical/structural work.",
+      "Yes. DCPL executes civil construction, industrial projects, road works, electrical utilities, drainage and public infrastructure scopes.",
   },
 ];
 
 export const seedProjects: ProjectView[] = [
   {
     id: "seed-1",
-    title: "Deepwater Logistics Yard & Berth Interface",
-    slug: "deepwater-logistics-yard-berth-interface",
-    clientName: "Apex Ports",
+    title: "Whirlpool Industrial Works Program",
+    slug: "whirlpool-industrial-works-program",
+    clientName: "Whirlpool of India Ltd",
     clientLogo: null,
     featuredImage: industrialImages.hero,
     gallery: [industrialImages.hero, industrialImages.structure, industrialImages.site],
-    location: "Kandla, Gujarat",
+    location: "Puducherry",
     scopeOfWork:
-      "Civil works, berth-side pavement, drainage, utility trenches, crane rail foundations and commissioning support.",
-    timeline: "18 months",
-    projectValue: "INR 186 Cr",
+      "Warehouse and packaging lab construction, reliability lab renovation, fire hydrant pipeline work, mezzanine floor construction, civil, electrical and interior works.",
+    timeline: "20+ works completed in the last 5 years",
+    projectValue: "INR 400+ Lakhs",
     status: "COMPLETED",
-    servicesUsed: ["Marine civil works", "Heavy-duty pavements", "MEP coordination"],
-    industry: "Ports & logistics",
+    servicesUsed: ["Industrial projects", "Civil construction", "Electrical works", "Interior works"],
+    industry: "Industrial manufacturing",
     summary:
-      "A high-load logistics platform engineered for port-side container movement, all-weather drainage and phased commissioning.",
+      "A multi-scope industrial execution program covering production support buildings, renovation, utilities and civil-electrical works.",
     body:
-      "Dockside delivered a berth-adjacent logistics yard with a tightly sequenced execution plan that kept adjacent port operations live. The scope integrated reinforced pavements, utility corridors, fire water networks, equipment foundations and final commissioning documentation. The team used milestone-based quality gates, weekly interface reviews and digital progress controls to compress handover risk.",
-    seoTitle: "Deepwater Logistics Yard Case Study",
+      "Dockside executed more than 20 works for Whirlpool of India Ltd in Puducherry, including warehouse and packaging lab construction, reliability lab renovation, fire hydrant pipeline work, mezzanine floor construction and coordinated civil, electrical and interior scopes. The program reflects DCPL's ability to work inside active industrial environments with quality controls and timely execution.",
+    seoTitle: "Whirlpool Puducherry Industrial Works",
     seoDescription:
-      "Dockside Constructions port logistics yard and berth interface project in Gujarat.",
+      "Dockside Constructions industrial works program for Whirlpool of India Ltd in Puducherry.",
     featured: true,
     testimonial: {
       quote:
-        "Dockside brought disciplined planning, transparent reporting and a strong safety culture to a very constrained port environment.",
-      personName: "Rohan Mehta",
-      designation: "Project Director",
-      company: "Apex Ports",
+        "DCPL's repeat industrial works show reliable site discipline, coordinated execution and practical engineering management.",
+      personName: "Client Project Team",
+      designation: "Industrial Works",
+      company: "Whirlpool of India Ltd",
     },
   },
   {
     id: "seed-2",
-    title: "Precision Manufacturing Campus",
-    slug: "precision-manufacturing-campus",
-    clientName: "Orbit Steel",
+    title: "Lodha Industrial Park - Chennai",
+    slug: "lodha-industrial-park-chennai",
+    clientName: "Lodha Industrial Park",
     clientLogo: null,
     featuredImage: industrialImages.structure,
     gallery: [industrialImages.structure, industrialImages.crane, industrialImages.safety],
-    location: "Pune, Maharashtra",
+    location: "Eichoor, Chennai",
     scopeOfWork:
-      "Design-build industrial shell, structural steel, process foundations, utilities and administrative block.",
-    timeline: "14 months",
-    projectValue: "INR 94 Cr",
-    status: "IN_PROGRESS",
-    servicesUsed: ["Industrial buildings", "Structural steel", "Design-build"],
-    industry: "Manufacturing",
+      "Earthwork, land grading, material supply, site development and common area development works.",
+    timeline: "Program delivery",
+    projectValue: "INR 50+ Crores",
+    status: "COMPLETED",
+    servicesUsed: ["Earthwork", "Land grading", "Site development", "Infrastructure works"],
+    industry: "Logistics parks",
     summary:
-      "A precision manufacturing campus with high-bay production halls, process-ready floors and expansion-ready utilities.",
+      "Large-format industrial park development with land grading, site development and common infrastructure scope.",
     body:
-      "The campus is planned around high-bay production, flexible utility spines and future line expansion. Dockside manages structural detailing, procurement, vendor coordination and safety-led execution under a single program office.",
-    seoTitle: "Precision Manufacturing Campus",
+      "For Lodha Industrial Park at Eichoor, Chennai, DCPL handled earthwork, land grading, material supply, site development and common area development works. The project showcases large-scale site execution capability for logistics and industrial park environments.",
+    seoTitle: "Lodha Industrial Park Chennai Case Study",
     seoDescription:
-      "Industrial construction case study for a manufacturing campus by Dockside Constructions.",
+      "Earthwork, land grading and site development works by Dockside Constructions at Lodha Industrial Park Chennai.",
     featured: true,
     testimonial: {
       quote:
-        "Their engineering coordination helped us freeze design decisions faster and protect the construction schedule.",
-      personName: "Ananya Rao",
-      designation: "Head of Projects",
-      company: "Orbit Steel",
+        "The works required reliable equipment deployment, grading discipline and common infrastructure coordination at scale.",
+      personName: "Project Controls Team",
+      designation: "Industrial Park Development",
+      company: "Lodha Industrial Park",
     },
   },
   {
     id: "seed-3",
-    title: "Regional Cold Chain Distribution Hub",
-    slug: "regional-cold-chain-distribution-hub",
-    clientName: "Nexus Logistics",
+    title: "Adani Logistics Civil & Structural Works",
+    slug: "adani-logistics-civil-structural-works",
+    clientName: "Adani Logistics Limited",
     clientLogo: null,
     featuredImage: industrialImages.site,
     gallery: [industrialImages.site, industrialImages.hero, industrialImages.crane],
-    location: "Chennai, Tamil Nadu",
+    location: "Malur, Karnataka",
     scopeOfWork:
-      "Warehouse shell, insulated envelope coordination, MEP yards, loading bays, roads and stormwater systems.",
-    timeline: "11 months",
-    projectValue: "INR 72 Cr",
-    status: "COMPLETED",
-    servicesUsed: ["Warehousing", "MEP coordination", "Roads and yards"],
-    industry: "Warehousing",
+      "Miscellaneous civil works, RCC works, drainage and structural works.",
+    timeline: "Ongoing",
+    projectValue: "INR 10 Crores",
+    status: "IN_PROGRESS",
+    servicesUsed: ["Civil construction", "RCC works", "Drainage", "Structural works"],
+    industry: "Logistics",
     summary:
-      "A temperature-controlled distribution hub built for fast truck turnaround, resilient utilities and audit-ready safety systems.",
+      "Ongoing civil, RCC, drainage and structural works for logistics infrastructure in Karnataka.",
     body:
-      "Dockside coordinated the civil, envelope and MEP interfaces for a cold-chain hub with aggressive operational-readiness dates. The final asset includes loading infrastructure, external circulation, equipment yards and operational support spaces.",
-    seoTitle: "Cold Chain Distribution Hub Case Study",
+      "DCPL's Adani Logistics scope at Malur, Karnataka includes miscellaneous civil works, RCC works, drainage and structural works. The ongoing project demonstrates Dockside's ability to coordinate high-utility industrial logistics infrastructure with active project controls.",
+    seoTitle: "Adani Logistics Malur Civil Works",
     seoDescription:
-      "Warehouse and logistics infrastructure project by Dockside Constructions.",
+      "Ongoing civil, RCC, drainage and structural works by Dockside Constructions for Adani Logistics Limited in Malur, Karnataka.",
+    featured: true,
+    testimonial: null,
+  },
+  {
+    id: "seed-4",
+    title: "Chennai One IT SEZ Land Development",
+    slug: "chennai-one-it-sez-land-development",
+    clientName: "Chennai One IT SEZ",
+    clientLogo: null,
+    featuredImage: industrialImages.crane,
+    gallery: [industrialImages.crane, industrialImages.site, industrialImages.structure],
+    location: "Mandra City Project, Chennai",
+    scopeOfWork:
+      "Large-scale land development, soil filling, site preparation, DGPS and survey works.",
+    timeline: "Ongoing",
+    projectValue: "INR 300+ Crores overall project value",
+    status: "IN_PROGRESS",
+    servicesUsed: ["Land development", "Soil filling", "Survey works", "Site preparation"],
+    industry: "Commercial campus",
+    summary:
+      "Large-scale campus land development and site preparation scope for a major Chennai commercial development.",
+    body:
+      "At Chennai One IT SEZ's Mandra City Project, DCPL supports large-scale land development, soil filling, site preparation, DGPS and survey works. The project highlights Dockside's capacity to bring survey-led precision and execution discipline to early-stage campus infrastructure.",
+    seoTitle: "Chennai One IT SEZ Land Development",
+    seoDescription:
+      "Land development, soil filling, DGPS and survey works by Dockside Constructions for Chennai One IT SEZ.",
     featured: true,
     testimonial: null,
   },
@@ -289,24 +333,35 @@ export const seedProjects: ProjectView[] = [
 export const seedPosts: PostView[] = [
   {
     id: "post-1",
-    title: "How EPC Discipline Reduces Construction Risk",
-    slug: "epc-discipline-reduces-construction-risk",
+    title: "How Execution Excellence Defines DCPL Projects",
+    slug: "execution-excellence-defines-dcpl-projects",
     excerpt:
-      "A practical look at schedule governance, procurement controls and quality gates for industrial projects.",
+      "Precision, planning and performance-driven processes are the operating principles behind every Dockside project.",
     coverImage: industrialImages.crane,
-    category: "Execution",
+    category: "Company Values",
     body:
-      "Risk drops when design decisions, procurement commitments and site execution are governed as one integrated system. Dockside uses stage gates, RFI discipline and live schedule reporting to keep projects moving with fewer surprises.",
+      "Execution defines reputation. Dockside Constructions Private Limited combines technical expertise, practical site planning, quality gates and transparent coordination to deliver construction outcomes with reliability and accountability.",
   },
   {
     id: "post-2",
-    title: "Designing Heavy-Duty Industrial Pavements",
-    slug: "designing-heavy-duty-industrial-pavements",
+    title: "What Industrial Owners Should Expect From Civil Works",
+    slug: "industrial-owners-civil-works-expectations",
     excerpt:
-      "What owners should understand about load paths, drainage, joints and long-term maintenance.",
+      "Industrial civil work is not only structure. It includes utilities, drainage, safety, maintenance access and long-term durability.",
     coverImage: industrialImages.site,
     category: "Engineering",
     body:
-      "Industrial pavements are production assets. Load assumptions, joint detailing and drainage strategy must be resolved before construction, not corrected after operations begin.",
+      "Industrial facilities require coordinated civil works, electrical interfaces, fire hydrant lines, mezzanine floors, structural works, drainage and handover documentation. DCPL's profile reflects repeat industrial execution across Whirlpool, Anabond, Godrej and logistics-led clients.",
+  },
+  {
+    id: "post-3",
+    title: "Building With Quality, Safety and Sustainability",
+    slug: "quality-safety-sustainability-construction",
+    excerpt:
+      "DCPL's ISO systems align quality management, environmental responsibility and occupational health and safety.",
+    coverImage: industrialImages.safety,
+    category: "Safety",
+    body:
+      "Dockside Constructions operates with ISO 9001:2015, ISO 14001:2015 and ISO 45001:2018 management systems. The company's mission emphasizes uncompromising quality, safety, efficiency, advanced construction practices and responsible infrastructure growth.",
   },
 ];

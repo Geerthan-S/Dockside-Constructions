@@ -8,8 +8,8 @@ export default function ServicesPage() {
     <>
       <PageHero
         eyebrow="Services"
-        title="Construction services from concept governance to handover."
-        description="A full-stack construction delivery model for marine, industrial, logistics and infrastructure programs."
+        title="Core construction services from site planning to handover."
+        description="Civil construction, roads, railway-related infrastructure, electrical utilities, industrial works, water infrastructure, drainage and traffic systems."
         image={industrialImages.crane}
       />
       <section className="mx-auto grid max-w-7xl gap-5 px-4 py-20 sm:px-6 md:grid-cols-2 lg:grid-cols-4 lg:px-8">

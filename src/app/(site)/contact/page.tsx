@@ -32,17 +32,17 @@ export default function ContactPage() {
       <PageHero
         eyebrow="Contact"
         title="Speak with Dockside about your next project."
-        description="Connect with our corporate office for partnerships, tenders, vendor onboarding and project inquiries."
+        description="Connect with DCPL for civil construction, industrial works, road infrastructure, drainage, electrical utilities and project management inquiries."
         image={industrialImages.hero}
       />
       <section className="mx-auto grid max-w-7xl gap-10 px-4 py-20 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:px-8">
         <div className="glass-panel rounded-lg p-8">
-          <h2 className="text-3xl font-semibold">Corporate office</h2>
+          <h2 className="text-3xl font-semibold">Registered office</h2>
           <div className="mt-8 grid gap-5 text-muted-foreground">
-            <p className="flex gap-3"><span className="font-mono text-primary">[ LOC ]</span> Mumbai, Maharashtra, India</p>
-            <p className="flex gap-3"><span className="font-mono text-primary">[ TEL ]</span> +91 22 4000 1188</p>
-            <p id="mail" className="flex gap-3"><span className="font-mono text-primary">[ MAIL ]</span> projects@docksideconstructions.com</p>
-            <p id="whatsapp" className="flex gap-3"><span className="font-mono text-primary">[ WA ]</span> WhatsApp: +91 98765 43210</p>
+            <p className="flex gap-3"><span className="font-mono text-primary">[ LOC ]</span> No.56, V.G.P. Nagar East, Salamedu, Villupuram - 605401</p>
+            <p className="flex gap-3"><span className="font-mono text-primary">[ TEL ]</span> +91 89259 22737</p>
+            <p id="mail" className="flex gap-3"><span className="font-mono text-primary">[ MAIL ]</span> admin@docksideconstructions.com</p>
+            <p id="whatsapp" className="flex gap-3"><span className="font-mono text-primary">[ WA ]</span> WhatsApp: +91 89259 22737</p>
           </div>
           <div id="socials" className="mt-8 flex gap-3">
             <a className="glass-panel-soft rounded-md p-3 font-mono text-xs" href="#" aria-label="LinkedIn">LINKEDIN</a>

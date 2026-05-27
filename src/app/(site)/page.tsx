@@ -7,21 +7,27 @@ import { Services } from "@/components/sections/Services";
 import { Stats } from "@/components/sections/Stats";
 import { Divider } from "@/components/ui/Divider";
 import { Marquee } from "@/components/ui/Marquee";
-import { certifications, clientLogos } from "@/lib/content";
+import { clientLogos } from "@/lib/content";
 import { getFeaturedProjects, getPosts } from "@/lib/repositories";
 
 function CertificationsStrip() {
+  const certificates = [
+    ["ISO 9001:2015", "Quality Management System"],
+    ["ISO 14001:2015", "Environmental Management System"],
+    ["ISO 45001:2018", "Occupational Health & Safety"],
+  ];
+
   return (
     <section className="cert-strip" aria-label="Certifications">
-      {certifications.map((certification) => (
-        <article key={certification}>
+      {certificates.map(([standard, scope]) => (
+        <article key={standard}>
           <svg viewBox="0 0 40 40" aria-hidden="true">
             <rect x="4" y="4" width="32" height="32" fill="none" />
             <text x="20" y="24" textAnchor="middle">ISO</text>
           </svg>
           <div>
-            <strong>{certification.replace("ISO ", "")}</strong>
-            <span>Verified operating system</span>
+            <strong>{standard}</strong>
+            <span>{scope}</span>
           </div>
         </article>
       ))}
@@ -47,4 +53,3 @@ export default async function HomePage() {
     </>
   );
 }
-

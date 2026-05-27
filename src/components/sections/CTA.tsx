@@ -11,7 +11,7 @@ export function CTA() {
       <p>Share your scope, timelines and business goals. Our team will respond with the right technical next step.</p>
       <div>
         <Link href="/get-quote" className="studio-button studio-button--fill">Request Proposal</Link>
-        <a href="tel:+912240001188" className="studio-button studio-button--outline">Call +91 22 4000 1188</a>
+        <a href="tel:+918925922737" className="studio-button studio-button--outline">Call +91 89259 22737</a>
       </div>
     </section>
   );

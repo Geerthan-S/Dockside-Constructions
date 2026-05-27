@@ -14,8 +14,8 @@ export async function SiteFooter() {
             <em>CONSTRUCTIONS PVT. LTD.</em>
           </Link>
           <p className="industrial-footer__tagline">
-            Engineering-led construction for ports, logistics parks, manufacturing campuses
-            and critical infrastructure.
+            Building infrastructure, delivering excellence and creating value across
+            industrial, commercial and public-sector construction.
           </p>
           <div className="iso-cluster" aria-label="Certification badges">
             {["9001", "14001", "45001"].map((iso) => (
@@ -41,19 +41,18 @@ export async function SiteFooter() {
         <div>
           <h3>CONTACT</h3>
           <address>
-            Corporate Office<br />
-            Mumbai, Maharashtra<br />
-            India
+            Registered Office<br />
+            No.56, V.G.P. Nagar East<br />
+            Salamedu, Villupuram - 605401
           </address>
-          <strong>+91 22 4000 1188</strong>
-          <a href="mailto:projects@docksideconstructions.com">projects@docksideconstructions.com</a>
+          <strong>+91 89259 22737</strong>
+          <a href="mailto:admin@docksideconstructions.com">admin@docksideconstructions.com</a>
         </div>
       </div>
       <div className="industrial-footer__bar">
-        <span>© 2026 DOCKSIDE CONSTRUCTIONS PRIVATE LIMITED</span>
-        <span>BUILT FOR INDIA&apos;S INFRASTRUCTURE FUTURE</span>
+        <span>&copy; 2026 DOCKSIDE CONSTRUCTIONS PRIVATE LIMITED</span>
+        <span>BUILDING INFRASTRUCTURE. DELIVERING EXCELLENCE.</span>
       </div>
     </footer>
   );
 }
-

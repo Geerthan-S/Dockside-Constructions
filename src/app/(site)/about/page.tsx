@@ -4,27 +4,51 @@ import { certifications, industrialImages } from "@/lib/content";
 
 export const metadata = { title: "About" };
 
+const leadership = [
+  {
+    name: "Ms. Kalaimakalle Alice",
+    role: "Managing Director",
+    text: "A visionary leader driving DCPL with a strong focus on quality, growth and operational excellence, building a performance-driven organization centered on client satisfaction and long-term value creation.",
+  },
+  {
+    name: "Ms. Viviya Reddy",
+    role: "Director - Technical",
+    text: "A civil engineering professional with expertise in project execution, design coordination and engineering management across residential, commercial and industrial sectors.",
+  },
+  {
+    name: "Mr. Sravan Reddy",
+    role: "Director - Projects",
+    text: "An experienced construction professional focused on project management, execution, operational strategy, cost optimization, quality control and timely delivery.",
+  },
+  {
+    name: "Mr. R. Senthamizhselvan",
+    role: "Director - Engineering & Strategy",
+    text: "A seasoned professional with structural engineering and infrastructure development expertise, guiding engineering decisions and strategic growth.",
+  },
+];
+
 export default function AboutPage() {
   return (
     <>
       <PageHero
         eyebrow="About Dockside"
-        title="An engineering-first construction company for complex corporate assets."
-        description="Dockside Constructions Private Limited brings governance, safety and project-control discipline to residential, commercial, industrial and infrastructure delivery."
+        title="A professionally driven infrastructure and construction company."
+        description="Dockside Constructions Private Limited delivers high-quality engineering solutions across industrial, commercial and public sectors with reliability, precision and timely execution."
         image={industrialImages.structure}
       />
       <section id="company-overview" className="mx-auto grid max-w-7xl gap-10 px-4 py-20 sm:px-6 lg:grid-cols-2 lg:px-8">
         <div className="glass-panel rounded-lg p-8">
           <h2 className="text-3xl font-semibold">Company Overview</h2>
           <p className="mt-5 leading-7 text-muted-foreground">
-            We operate as a premium corporate construction partner for owners who need clarity:
-            program governance, transparent reporting, site discipline, vendor coordination
-            and documentation that stands up to audits.
+            DCPL is backed by experienced engineers, a skilled workforce and advanced
+            machinery. The company executes industrial facilities, road infrastructure,
+            structural works and turnkey civil solutions for corporate and government
+            clients.
           </p>
           <div className="mt-8 grid gap-4">
-            {["Integrated planning", "Safety-led execution", "Quality gates", "Procurement discipline"].map((item) => (
+            {["Reliability", "Precision", "Timely execution", "Quality, safety and sustainability"].map((item) => (
               <p key={item} className="flex items-center gap-3 text-muted-foreground">
-                <span className="text-primary">◆</span>
+                <span className="text-primary">{"\u25C6"}</span>
                 {item}
               </p>
             ))}
@@ -40,28 +64,32 @@ export default function AboutPage() {
             <span className="font-mono text-primary">[ V ]</span>
             <h2 className="mt-6 text-3xl font-semibold">Vision</h2>
             <p className="mt-4 leading-7 text-muted-foreground">
-              To become the most trusted engineering-led construction company for clients who demand performance, transparency and long-term asset value.
+              To be a benchmark-driven infrastructure company delivering world-class
+              construction solutions, transforming ideas into enduring assets and
+              contributing to national growth through innovation, precision and
+              sustainable development.
             </p>
           </div>
           <div className="glass-panel rounded-lg p-8">
             <span className="font-mono text-primary">[ M ]</span>
             <h2 className="mt-6 text-3xl font-semibold">Mission</h2>
             <p className="mt-4 leading-7 text-muted-foreground">
-              Deliver residential, commercial, industrial and infrastructure projects through disciplined planning, skilled teams and uncompromising safety systems.
+              Deliver projects with uncompromising quality, safety and efficiency;
+              adopt advanced technologies and modern construction practices; create
+              long-term client value; empower the workforce; and build responsibly.
             </p>
           </div>
         </div>
       </section>
       <section id="leadership" className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
         <h2 className="text-3xl font-semibold">Leadership</h2>
-        <div className="mt-8 grid gap-5 md:grid-cols-3">
-          {["Managing Director", "Head of Projects", "Director - Safety & Quality"].map((role) => (
-            <div key={role} className="glass-panel rounded-lg p-6">
+        <div className="mt-8 grid gap-5 md:grid-cols-2">
+          {leadership.map((person) => (
+            <div key={person.name} className="glass-panel rounded-lg p-6">
               <div className="mb-5 size-14 rounded-md border border-primary/25 bg-primary/10" />
-              <h3 className="text-xl font-semibold">{role}</h3>
-              <p className="mt-3 text-sm leading-6 text-muted-foreground">
-                Senior construction leadership focused on governance, engineering decisions and client accountability.
-              </p>
+              <p className="font-mono text-xs uppercase tracking-[0.2em] text-primary">{person.name}</p>
+              <h3 className="mt-2 text-xl font-semibold">{person.role}</h3>
+              <p className="mt-3 text-sm leading-6 text-muted-foreground">{person.text}</p>
             </div>
           ))}
         </div>
@@ -73,7 +101,7 @@ export default function AboutPage() {
           <div className="mt-6 grid gap-4">
             {certifications.map((item) => (
               <p key={item} className="flex items-center gap-3 text-muted-foreground">
-                <span className="text-primary">◆</span>
+                <span className="text-primary">{"\u25C6"}</span>
                 {item}
               </p>
             ))}

@@ -5,7 +5,7 @@ import { getProjects } from "@/lib/repositories";
 
 export const metadata = {
   title: "Projects",
-  description: "CMS-powered project showcase for Dockside Constructions.",
+  description: "Project showcase for Dockside Constructions across industrial, public infrastructure, logistics, roads, drainage and civil works.",
 };
 
 export default async function ProjectsPage() {
@@ -15,8 +15,8 @@ export default async function ProjectsPage() {
     <>
       <PageHero
         eyebrow="Projects"
-        title="Dynamic case studies for premium construction delivery."
-        description="Each project supports client logos, images, galleries, scope, timeline, value, status, services, testimonial and SEO metadata."
+        title="Executed works for corporate and government clients."
+        description="Selected project profiles from Whirlpool, Lodha Industrial Park, Adani Logistics, Chennai One IT SEZ and public infrastructure programs."
         image={industrialImages.hero}
       />
       <section className="mx-auto grid max-w-7xl gap-5 px-4 py-20 sm:px-6 md:grid-cols-2 lg:grid-cols-3 lg:px-8">
@@ -27,4 +27,3 @@ export default async function ProjectsPage() {
     </>
   );
 }
-

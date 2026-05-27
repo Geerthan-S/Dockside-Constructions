@@ -1,10 +1,10 @@
 import { CountUp } from "@/components/ui/CountUp";
 
 const stats = [
-  { number: <><CountUp end={25} suffix="+" /></>, label: "YEARS", descriptor: "Leadership experience" },
-  { number: <><CountUp end={1200} prefix="INR " suffix="Cr+" /></>, label: "DELIVERED", descriptor: "Projects governed" },
-  { number: <><CountUp end={4.8} decimals={1} suffix="M sq.ft." /></>, label: "BUILT", descriptor: "Industrial space" },
-  { number: <CountUp end={0} text="ZERO HARM" />, label: "PHILOSOPHY", descriptor: "Safety governance" },
+  { number: <><CountUp end={65} suffix="+" /></>, label: "WORKS", descriptor: "Profiled repeat projects" },
+  { number: <><CountUp end={360} prefix="INR " suffix="Cr+" /></>, label: "VALUE", descriptor: "Profiled project value" },
+  { number: <><CountUp end={3} suffix=" ISO" /></>, label: "SYSTEMS", descriptor: "Quality, environment, safety" },
+  { number: <CountUp end={0} text="ON-TIME" />, label: "DISCIPLINE", descriptor: "Reliability and execution focus" },
 ];
 
 export function Stats() {
@@ -20,4 +20,3 @@ export function Stats() {
     </section>
   );
 }
-
