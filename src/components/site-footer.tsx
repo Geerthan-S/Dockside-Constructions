@@ -1,4 +1,6 @@
 import Link from "next/link";
+import { ArrowRight } from "lucide-react";
+import { serviceCategories } from "@/lib/content";
 import { getProjects } from "@/lib/repositories";
 
 export async function SiteFooter() {
@@ -9,6 +11,7 @@ export async function SiteFooter() {
       <div className="industrial-footer__grid">
         <div>
           <Link href="/" className="industrial-wordmark industrial-wordmark--footer">
+            <span className="industrial-wordmark__mark">D</span>
             <span>DOCKSIDE</span>
             <i />
             <em>CONSTRUCTIONS PVT. LTD.</em>
@@ -39,6 +42,14 @@ export async function SiteFooter() {
           ))}
         </div>
         <div>
+          <h3>SERVICES</h3>
+          {serviceCategories.slice(0, 5).map((service) => (
+            <Link key={service.slug} href={`/services/${service.slug}`}>
+              {service.title}
+            </Link>
+          ))}
+        </div>
+        <div>
           <h3>CONTACT</h3>
           <address>
             Registered Office<br />
@@ -47,6 +58,18 @@ export async function SiteFooter() {
           </address>
           <strong>+91 89259 22737</strong>
           <a href="mailto:admin@docksideconstructions.com">admin@docksideconstructions.com</a>
+        </div>
+        <div>
+          <h3>NEWSLETTER</h3>
+          <p className="industrial-footer__tagline">
+            Project updates, infrastructure notes and execution insights.
+          </p>
+          <form className="footer-newsletter">
+            <input aria-label="Email address" placeholder="Enter your email" type="email" />
+            <button aria-label="Subscribe" type="button">
+              <ArrowRight className="size-4" aria-hidden="true" />
+            </button>
+          </form>
         </div>
       </div>
       <div className="industrial-footer__bar">

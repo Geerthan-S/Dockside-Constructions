@@ -1,4 +1,5 @@
 import { redirect } from "next/navigation";
+import Image from "next/image";
 import { z } from "zod";
 import { PageHero } from "@/components/page-hero";
 import { Button } from "@/components/ui/button";
@@ -47,6 +48,14 @@ export default function ContactPage() {
           <div id="socials" className="mt-8 flex gap-3">
             <a className="glass-panel-soft rounded-md p-3 font-mono text-xs" href="#" aria-label="LinkedIn">LINKEDIN</a>
             <a className="glass-panel-soft rounded-md p-3 font-mono text-xs" href="#" aria-label="Instagram">INSTAGRAM</a>
+          </div>
+          <div className="contact-site-image">
+            <Image
+              src={industrialImages.planning}
+              alt="Construction planning discussion"
+              fill
+              sizes="(min-width: 1024px) 36vw, 100vw"
+            />
           </div>
         </div>
         <form id="inquiry-form" action={submitContact} className="glass-panel grid gap-5 rounded-lg p-8">

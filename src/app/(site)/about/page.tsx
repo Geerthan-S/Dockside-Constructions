@@ -81,6 +81,35 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+      <section className="mx-auto grid max-w-7xl gap-5 px-4 py-20 sm:px-6 lg:grid-cols-[1.15fr_0.85fr] lg:px-8">
+        <div className="about-image-stack">
+          <div>
+            <Image
+              src={industrialImages.planning}
+              alt="Engineers reviewing construction drawings"
+              fill
+              sizes="(min-width: 1024px) 58vw, 100vw"
+            />
+          </div>
+          <div>
+            <Image
+              src={industrialImages.foundation}
+              alt="Reinforced concrete foundation work"
+              fill
+              sizes="(min-width: 1024px) 34vw, 90vw"
+            />
+          </div>
+        </div>
+        <div className="glass-panel rounded-lg p-8">
+          <span className="font-mono text-primary">[ CONTROL ]</span>
+          <h2 className="mt-6 text-3xl font-semibold">Planning visible before execution starts.</h2>
+          <p className="mt-5 leading-7 text-muted-foreground">
+            The strongest construction outcomes are shaped before equipment reaches the site.
+            Dockside frames each scope around drawings, quantities, sequencing, safety controls
+            and documented QA checkpoints so field teams can move with clarity.
+          </p>
+        </div>
+      </section>
       <section id="leadership" className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
         <h2 className="text-3xl font-semibold">Leadership</h2>
         <div className="mt-8 grid gap-5 md:grid-cols-2">

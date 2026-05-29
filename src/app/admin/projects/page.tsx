@@ -23,10 +23,10 @@ export default async function AdminProjectsPage({
 
   return (
     <div>
-      <div className="flex flex-wrap items-center justify-between gap-4">
+      <div className="admin-page-title flex flex-wrap items-center justify-between gap-4">
         <div>
-          <h1 className="text-3xl font-semibold">Projects</h1>
-          <p className="mt-2 text-muted-foreground">Create, edit, delete and publish project case studies.</p>
+          <h1>Project control</h1>
+          <p className="mt-3">Create, edit, delete and publish project case studies with portfolio-grade metadata.</p>
         </div>
         <Button asChild><Link href="/admin/projects/new"><Plus className="size-4" /> Add Project</Link></Button>
       </div>
@@ -35,7 +35,7 @@ export default async function AdminProjectsPage({
           Configure DATABASE_URL and run Prisma migrations to enable writes.
         </p>
       ) : null}
-      <div className="mt-8 rounded-lg border border-white/10 bg-card/45">
+      <div className="admin-table-shell">
         <Table>
           <TableHeader>
             <TableRow>
@@ -67,4 +67,3 @@ export default async function AdminProjectsPage({
     </div>
   );
 }
-

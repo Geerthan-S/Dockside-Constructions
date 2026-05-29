@@ -1,18 +1,23 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import { ArrowRight, Menu, X } from "lucide-react";
+import { Logo } from "@/components/ui/logo";
 
 const navItems = [
-  ["ABOUT", "/about"],
-  ["SERVICES", "/services"],
-  ["PROJECTS", "/projects"],
-  ["INSIGHTS", "/insights"],
-  ["CAREERS", "/careers"],
-  ["CONTACT", "/contact"],
+  ["Home", "/"],
+  ["About Us", "/about"],
+  ["Services", "/services"],
+  ["Projects", "/projects"],
+  ["Our Process", "/#process"],
+  ["Blog", "/insights"],
+  ["Contact", "/contact"],
 ];
 
 export function SiteHeader() {
+  const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -36,19 +41,19 @@ export function SiteHeader() {
 
   return (
     <header className={`industrial-nav ${scrolled ? "is-scrolled" : ""}`}>
-      <Link href="/" className="industrial-wordmark" aria-label="Dockside home">
-        <span>DOCKSIDE</span>
-        <i />
-        <em>CONSTRUCTIONS PVT. LTD.</em>
-      </Link>
+      <Logo />
       <nav className="industrial-nav__links" aria-label="Main navigation">
-        {navItems.map(([label, href]) => (
-          <Link key={href} href={href}>
+        {navItems.map(([label, href]) => {
+          const active = pathname === href || pathname.startsWith(`${href}/`);
+          return (
+          <Link key={href} href={href} className={active ? "is-active" : ""}>
             {label}
           </Link>
-        ))}
+          );
+        })}
         <Link href="/get-quote" className="industrial-quote">
-          GET QUOTE
+          Get a Quote
+          <ArrowRight className="size-3.5" aria-hidden="true" />
         </Link>
       </nav>
       <button
@@ -57,12 +62,13 @@ export function SiteHeader() {
         aria-label="Open menu"
         onClick={() => setOpen(true)}
       >
-        MENU
+        <Menu className="size-4" aria-hidden="true" />
       </button>
       <div className={`industrial-overlay ${open ? "is-open" : ""}`} aria-hidden={!open}>
         <button className="industrial-overlay__close" type="button" onClick={() => setOpen(false)}>
-          CLOSE
+          <X className="size-5" aria-hidden="true" />
         </button>
+        <p>Navigation</p>
         <div className="industrial-overlay__links">
           {navItems.map(([label, href]) => (
             <Link key={href} href={href} onClick={() => setOpen(false)}>
@@ -70,7 +76,7 @@ export function SiteHeader() {
             </Link>
           ))}
           <Link href="/get-quote" onClick={() => setOpen(false)}>
-            GET QUOTE
+            Get a Quote
           </Link>
         </div>
       </div>

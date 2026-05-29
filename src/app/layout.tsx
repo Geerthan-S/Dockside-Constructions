@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
-import { Bebas_Neue, DM_Mono, Lora } from "next/font/google";
+import { Bebas_Neue, DM_Mono, Sora } from "next/font/google";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import { CustomCursor } from "@/components/ui/cursor";
 import "./globals.css";
 
 const bebasNeue = Bebas_Neue({
@@ -15,10 +16,9 @@ const dmMono = DM_Mono({
   subsets: ["latin"],
 });
 
-const lora = Lora({
-  weight: ["400", "600"],
-  style: ["normal", "italic"],
-  variable: "--font-lora",
+const sora = Sora({
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-sora",
   subsets: ["latin"],
 });
 
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     template: "%s | Dockside Constructions",
   },
   description:
-    "Dockside Constructions Private Limited is an infrastructure and construction company delivering civil, industrial, road, electrical, drainage and public-sector works.",
+    "Dockside Constructions Private Limited is a premium infrastructure and construction company delivering civil, industrial, road, electrical, drainage and public-sector works with disciplined project controls.",
   keywords: [
     "Dockside Constructions",
     "civil construction",
@@ -38,12 +38,36 @@ export const metadata: Metadata = {
     "electrical works",
     "infrastructure company Tamil Nadu",
   ],
+  icons: {
+    icon: [
+      {
+        url: "/favicon-96x96.png",
+        type: "image/png",
+        sizes: "96x96",
+      },
+      {
+        url: "/favicon.svg",
+        type: "image/svg+xml",
+      },
+    ],
+    shortcut: "/favicon.ico",
+    apple: [
+      {
+        url: "/apple-touch-icon.png",
+        sizes: "180x180",
+      },
+    ],
+  },
+  appleWebApp: {
+    title: "Dockside",
+  },
+  manifest: "/site.webmanifest",
   openGraph: {
-    title: "Dockside Constructions Private Limited",
+    title: "Dockside Constructions Private Limited | Premium Infrastructure Delivery",
     description:
-      "Building infrastructure, delivering excellence and creating value across industrial, commercial and public sectors.",
+      "Premium civil, industrial and infrastructure delivery with cinematic project presentation, quality controls and executive-grade site discipline.",
     type: "website",
-    images: ["/og-image.jpg"],
+    images: ["/og-image.png"],
   },
 };
 
@@ -55,9 +79,10 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${bebasNeue.variable} ${dmMono.variable} ${lora.variable} dark h-full antialiased`}
+      className={`${bebasNeue.variable} ${dmMono.variable} ${sora.variable} dark h-full antialiased`}
     >
       <body className="flex min-h-full flex-col">
+        <CustomCursor />
         <TooltipProvider>{children}</TooltipProvider>
       </body>
     </html>

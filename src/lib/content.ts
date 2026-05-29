@@ -61,48 +61,95 @@ export const industrialImages = {
     "https://images.unsplash.com/photo-1508450859948-4e04fabaa4ea?auto=format&fit=crop&w=1600&q=85",
   safety:
     "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1600&q=85",
+  highRise:
+    "https://images.pexels.com/photos/18162494/pexels-photo-18162494.jpeg?auto=compress&cs=tinysrgb&w=1800",
+  roadwork:
+    "https://images.pexels.com/photos/4390530/pexels-photo-4390530.jpeg?auto=compress&cs=tinysrgb&w=1800",
+  planning:
+    "https://images.pexels.com/photos/3862384/pexels-photo-3862384.jpeg?auto=compress&cs=tinysrgb&w=1600",
+  foundation:
+    "https://images.pexels.com/photos/11580364/pexels-photo-11580364.jpeg?auto=compress&cs=tinysrgb&w=1800",
+  concreteDetail:
+    "https://images.pexels.com/photos/19216761/pexels-photo-19216761.jpeg?auto=compress&cs=tinysrgb&w=1600",
+  warehouse:
+    "https://images.pexels.com/photos/236705/pexels-photo-236705.jpeg?auto=compress&cs=tinysrgb&w=2000",
+  logistics:
+    "https://images.pexels.com/photos/4481259/pexels-photo-4481259.jpeg?auto=compress&cs=tinysrgb&w=1800",
+  machinery:
+    "https://images.pexels.com/photos/162568/oil-pump-jack-sunset-clouds-silhouette-162568.jpeg?auto=compress&cs=tinysrgb&w=1800",
+  heroCinematic:
+    "/dockside-hero-construction.png",
+  warehouseDusk:
+    "https://images.pexels.com/photos/236705/pexels-photo-236705.jpeg?auto=compress&cs=tinysrgb&w=1800",
+  logisticsAerial:
+    "https://images.pexels.com/photos/4481259/pexels-photo-4481259.jpeg?auto=compress&cs=tinysrgb&w=1800",
+  industrialCampus:
+    "https://images.pexels.com/photos/325185/pexels-photo-325185.jpeg?auto=compress&cs=tinysrgb&w=1800",
+  steelExecution:
+    "https://images.pexels.com/photos/1216589/pexels-photo-1216589.jpeg?auto=compress&cs=tinysrgb&w=1800",
 };
 
 export const serviceCategories = [
   {
     title: "Civil Construction",
     slug: "civil-construction",
+    image: industrialImages.foundation,
+    deliverables: ["RCC and masonry works", "Foundations and slabs", "Renovation and fit-out civil works", "QA inspection records"],
+    proof: "Used across industrial, commercial and active facility environments where safety and handover documentation matter.",
     description:
       "Residential, commercial and industrial civil works executed with QA/QC controls, site supervision and disciplined handover documentation.",
   },
   {
     title: "Roads & Highways",
     slug: "roads-highways",
+    image: industrialImages.roadwork,
+    deliverables: ["BT and CC road formation", "Strengthening and renewal", "Culverts and storm water drains", "Road safety interfaces"],
+    proof: "Relevant to PWD Puducherry road strengthening, renewal, drainage and public infrastructure scopes.",
     description:
       "BT and CC roads, strengthening, renewal, grading, drainage integration and infrastructure development works.",
   },
   {
     title: "Railway Works",
     slug: "railway-works",
+    image: industrialImages.crane,
+    deliverables: ["Siding support works", "Yard interfaces", "Utility coordination", "Industrial logistics access"],
+    proof: "Suited for logistics-linked industrial campuses where access, grading and movement corridors must align.",
     description:
       "Railway siding and related infrastructure support for industrial campuses and logistics-linked developments.",
   },
   {
     title: "Electrical Works",
     slug: "electrical-works",
+    image: industrialImages.planning,
+    deliverables: ["HT/LT utility coordination", "Fire hydrant pipeline interfaces", "MEP civil coordination", "Testing support"],
+    proof: "Aligned with repeat industrial works involving utilities, reliability labs and active production support buildings.",
     description:
       "HT/LT installations, electrical utilities, fire hydrant pipeline interfaces and coordinated MEP execution.",
   },
   {
     title: "Industrial Projects",
     slug: "industrial-projects",
+    image: industrialImages.highRise,
+    deliverables: ["Warehouse and factory works", "PEB and structural coordination", "Mezzanine floors", "Hazardous storage sheds"],
+    proof: "Seen in Whirlpool repeat works, Lodha Industrial Park and logistics infrastructure programs.",
     description:
       "Warehouses, factories, PEB structures, mezzanine floors, hazardous storage sheds, renovations and process-ready buildings.",
   },
   {
     title: "Water Infrastructure & Drainage",
     slug: "water-infrastructure-drainage",
+    image: industrialImages.concreteDetail,
+    deliverables: ["Storm water drains", "Culverts and channels", "Water management works", "Site drainage integration"],
+    proof: "Critical across roads, logistics parks and industrial sites where long-term asset performance depends on drainage.",
     description:
       "Storm water drains, culverts, drainage systems, water management works and allied civil infrastructure.",
   },
   {
     title: "Road Safety & Traffic Systems",
     slug: "road-safety-traffic-systems",
+    image: industrialImages.safety,
+    deliverables: ["Signage and barriers", "Road markings", "Traffic control systems", "Safety equipment installation"],
+    proof: "Supports public infrastructure, industrial campuses and movement-heavy logistics environments.",
     description:
       "Supply and installation of road safety equipment, signage, barriers, road markings and traffic control solutions.",
   },
@@ -218,8 +265,8 @@ export const seedProjects: ProjectView[] = [
     slug: "whirlpool-industrial-works-program",
     clientName: "Whirlpool of India Ltd",
     clientLogo: null,
-    featuredImage: industrialImages.hero,
-    gallery: [industrialImages.hero, industrialImages.structure, industrialImages.site],
+    featuredImage: industrialImages.warehouseDusk,
+    gallery: [industrialImages.warehouseDusk, industrialImages.structure, industrialImages.site],
     location: "Puducherry",
     scopeOfWork:
       "Warehouse and packaging lab construction, reliability lab renovation, fire hydrant pipeline work, mezzanine floor construction, civil, electrical and interior works.",
@@ -250,8 +297,8 @@ export const seedProjects: ProjectView[] = [
     slug: "lodha-industrial-park-chennai",
     clientName: "Lodha Industrial Park",
     clientLogo: null,
-    featuredImage: industrialImages.structure,
-    gallery: [industrialImages.structure, industrialImages.crane, industrialImages.safety],
+    featuredImage: industrialImages.logisticsAerial,
+    gallery: [industrialImages.logisticsAerial, industrialImages.crane, industrialImages.foundation],
     location: "Eichoor, Chennai",
     scopeOfWork:
       "Earthwork, land grading, material supply, site development and common area development works.",
@@ -282,8 +329,8 @@ export const seedProjects: ProjectView[] = [
     slug: "adani-logistics-civil-structural-works",
     clientName: "Adani Logistics Limited",
     clientLogo: null,
-    featuredImage: industrialImages.site,
-    gallery: [industrialImages.site, industrialImages.hero, industrialImages.crane],
+    featuredImage: industrialImages.steelExecution,
+    gallery: [industrialImages.steelExecution, industrialImages.site, industrialImages.crane],
     location: "Malur, Karnataka",
     scopeOfWork:
       "Miscellaneous civil works, RCC works, drainage and structural works.",
@@ -308,8 +355,8 @@ export const seedProjects: ProjectView[] = [
     slug: "chennai-one-it-sez-land-development",
     clientName: "Chennai One IT SEZ",
     clientLogo: null,
-    featuredImage: industrialImages.crane,
-    gallery: [industrialImages.crane, industrialImages.site, industrialImages.structure],
+    featuredImage: industrialImages.industrialCampus,
+    gallery: [industrialImages.industrialCampus, industrialImages.site, industrialImages.structure],
     location: "Mandra City Project, Chennai",
     scopeOfWork:
       "Large-scale land development, soil filling, site preparation, DGPS and survey works.",

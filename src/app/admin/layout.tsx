@@ -1,8 +1,7 @@
 import Link from "next/link";
 import { redirect } from "next/navigation";
-import { BarChart3, FileText, ImageIcon, LayoutDashboard, MessageSquare, Search, Shield, Users, Wrench, type LucideIcon } from "lucide-react";
+import { BarChart3, FileText, ImageIcon, LayoutDashboard, LogOut, MessageSquare, Search, Shield, Users, Wrench, type LucideIcon } from "lucide-react";
 import { auth, signOut } from "@/auth";
-import { Button } from "@/components/ui/button";
 
 const adminNav: Array<[string, string, LucideIcon]> = [
   ["Overview", "/admin", LayoutDashboard],
@@ -25,31 +24,32 @@ export default async function AdminLayout({ children }: { children: React.ReactN
   if (!session?.user) redirect("/login");
 
   return (
-    <main className="min-h-screen bg-background">
-      <div className="grid min-h-screen lg:grid-cols-[280px_1fr]">
-        <aside className="border-r border-white/10 bg-card/45 p-5">
-          <Link href="/admin" className="flex items-center gap-3">
-            <Shield className="size-6 text-primary" />
+    <main className="admin-shell">
+      <div className="admin-shell__grid">
+        <aside className="admin-sidebar">
+          <Link href="/admin" className="admin-brand">
+            <Shield className="size-6 text-primary" aria-hidden="true" />
             <div>
-              <p className="font-semibold">Dockside CMS</p>
-              <p className="text-xs text-muted-foreground">{session.user.role}</p>
+              <p className="font-semibold uppercase tracking-[0.12em]">Dockside Ops</p>
+              <p className="text-xs text-muted-foreground">{session.user.role} control surface</p>
             </div>
           </Link>
-          <nav className="mt-8 grid gap-2">
+          <nav className="admin-nav" aria-label="Admin navigation">
             {adminNav.map(([label, href, Icon]) => (
-              <Button key={href as string} asChild variant="ghost" className="justify-start">
-                <Link href={href as string}>
-                  <Icon className="size-4" />
+              <Link key={href as string} href={href as string} className="admin-nav-link">
+                  <Icon className="size-4" aria-hidden="true" />
                   {label}
-                </Link>
-              </Button>
+              </Link>
             ))}
           </nav>
           <form action={logout} className="mt-8">
-            <Button variant="outline" className="w-full">Sign out</Button>
+            <button className="admin-nav-link w-full" type="submit">
+              <LogOut className="size-4" aria-hidden="true" />
+              Sign out
+            </button>
           </form>
         </aside>
-        <section className="p-4 sm:p-8">{children}</section>
+        <section className="admin-content">{children}</section>
       </div>
     </main>
   );
