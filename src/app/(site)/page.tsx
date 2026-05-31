@@ -1,6 +1,5 @@
 import { CTA } from "@/components/sections/CTA";
 import { Hero } from "@/components/sections/Hero";
-import { ProcessTimeline } from "@/components/sections/ProcessTimeline";
 import { Projects } from "@/components/sections/Projects";
 import { Services } from "@/components/sections/Services";
 import { Testimonials } from "@/components/sections/Testimonials";
@@ -16,7 +15,6 @@ export default async function HomePage() {
       <TrustSystems />
       <Projects projects={projects} />
       <Services />
-      <ProcessTimeline />
       <Testimonials projects={projects} />
       <CTA />
     </>
