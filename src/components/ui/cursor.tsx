@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { motion, useMotionValue, useSpring } from "framer-motion";
 
 export function CustomCursor() {
+  const [mounted, setMounted] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
   const [isHovering, setIsHovering] = useState(false);
 
@@ -15,46 +16,41 @@ export function CustomCursor() {
   const cursorYSpring = useSpring(cursorY, springConfig);
 
   useEffect(() => {
+    setMounted(true);
+
     const moveCursor = (e: MouseEvent) => {
       cursorX.set(e.clientX - 16);
       cursorY.set(e.clientY - 16);
-      if (!isVisible) setIsVisible(true);
+      setIsVisible(true);
     };
 
     const handleMouseLeave = () => setIsVisible(false);
     const handleMouseEnter = () => setIsVisible(true);
-
-    const handleLinkHoverEvents = () => {
-      const hoverables = document.querySelectorAll(
-        "a, button, [role='button'], input, select, textarea, .hoverable"
-      );
-      hoverables.forEach((el) => {
-        el.addEventListener("mouseenter", () => setIsHovering(true));
-        el.addEventListener("mouseleave", () => setIsHovering(false));
-      });
+    const hoverableSelector = "a, button, [role='button'], input, select, textarea, .hoverable";
+    const handlePointerOver = (event: PointerEvent) => {
+      setIsHovering(Boolean((event.target as Element | null)?.closest(hoverableSelector)));
+    };
+    const handlePointerOut = (event: PointerEvent) => {
+      const nextTarget = event.relatedTarget as Element | null;
+      if (!nextTarget?.closest(hoverableSelector)) setIsHovering(false);
     };
 
     window.addEventListener("mousemove", moveCursor);
     document.addEventListener("mouseleave", handleMouseLeave);
     document.addEventListener("mouseenter", handleMouseEnter);
-
-    handleLinkHoverEvents();
-    
-    // Setup mutation observer to attach events to dynamically added elements
-    const observer = new MutationObserver(() => {
-      handleLinkHoverEvents();
-    });
-    observer.observe(document.body, { childList: true, subtree: true });
+    document.addEventListener("pointerover", handlePointerOver);
+    document.addEventListener("pointerout", handlePointerOut);
 
     return () => {
       window.removeEventListener("mousemove", moveCursor);
       document.removeEventListener("mouseleave", handleMouseLeave);
       document.removeEventListener("mouseenter", handleMouseEnter);
-      observer.disconnect();
+      document.removeEventListener("pointerover", handlePointerOver);
+      document.removeEventListener("pointerout", handlePointerOut);
     };
-  }, [cursorX, cursorY, isVisible]);
+  }, [cursorX, cursorY]);
 
-  if (typeof window === "undefined") return null;
+  if (!mounted) return null;
 
   return (
     <motion.div

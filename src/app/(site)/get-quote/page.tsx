@@ -26,21 +26,23 @@ async function submitQuote(formData: FormData) {
   "use server";
 
   const parsed = quoteSchema.safeParse(Object.fromEntries(formData));
-  if (parsed.success && canUseDatabase()) {
-    const { projectLocation, projectType, targetStart, quantity, tenderType, message, ...quote } = parsed.data;
-    const enrichedMessage = [
-      message,
-      "",
-      "Project intake:",
-      projectLocation ? `Location: ${projectLocation}` : null,
-      projectType ? `Project type: ${projectType}` : null,
-      targetStart ? `Target start: ${targetStart}` : null,
-      quantity ? `Approx. quantity / area: ${quantity}` : null,
-      tenderType ? `Tender / private: ${tenderType}` : null,
-    ].filter(Boolean).join("\n");
+  if (!parsed.success) redirect("/get-quote?error=validation");
 
-    await getPrisma().quoteRequest.create({ data: { ...quote, message: enrichedMessage } });
-  }
+  if (!canUseDatabase()) redirect("/get-quote?error=database");
+
+  const { projectLocation, projectType, targetStart, quantity, tenderType, message, ...quote } = parsed.data;
+  const enrichedMessage = [
+    message,
+    "",
+    "Project intake:",
+    projectLocation ? `Location: ${projectLocation}` : null,
+    projectType ? `Project type: ${projectType}` : null,
+    targetStart ? `Target start: ${targetStart}` : null,
+    quantity ? `Approx. quantity / area: ${quantity}` : null,
+    tenderType ? `Tender / private: ${tenderType}` : null,
+  ].filter(Boolean).join("\n");
+
+  await getPrisma().quoteRequest.create({ data: { ...quote, message: enrichedMessage } });
   redirect("/get-quote/thank-you");
 }
 

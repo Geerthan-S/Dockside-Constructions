@@ -1,18 +1,19 @@
 import { PrismaClient } from "@prisma/client";
 
-let prisma: PrismaClient | null = null;
+const globalForPrisma = globalThis as typeof globalThis & {
+  prisma?: PrismaClient;
+};
 
 export function getPrisma() {
-  if (!prisma) {
-    prisma = new PrismaClient({
+  if (!globalForPrisma.prisma) {
+    globalForPrisma.prisma = new PrismaClient({
       log: process.env.NODE_ENV === "development" ? ["error", "warn"] : ["error"],
     });
   }
 
-  return prisma;
+  return globalForPrisma.prisma;
 }
 
 export function canUseDatabase() {
   return Boolean(process.env.DATABASE_URL);
 }
-

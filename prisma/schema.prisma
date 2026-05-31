@@ -3,8 +3,9 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
 }
 
 enum Role {
@@ -28,44 +29,50 @@ enum QuoteStatus {
 }
 
 model User {
-  id            String    @id @default(cuid())
-  name          String
-  email         String    @unique
-  passwordHash  String
-  role          Role      @default(EDITOR)
-  createdAt     DateTime  @default(now())
-  updatedAt     DateTime  @updatedAt
-  projects      Project[] @relation("ProjectAuthor")
-  posts         Post[]    @relation("PostAuthor")
+  id           String    @id @default(cuid())
+  name         String
+  email        String    @unique
+  passwordHash String
+  role         Role      @default(EDITOR)
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+  projects     Project[] @relation("ProjectAuthor")
+  posts        Post[]    @relation("PostAuthor")
+
+  @@index([role])
 }
 
 model Project {
-  id              String        @id @default(cuid())
-  title           String
-  slug            String        @unique
-  clientName      String
-  clientLogo      String?
-  featuredImage   String
-  gallery         String[]      @default([])
-  location        String
-  scopeOfWork     String
-  timeline        String
-  projectValue    String
-  status          ProjectStatus @default(IN_PROGRESS)
-  servicesUsed    String[]      @default([])
-  industry        String
-  summary         String
-  body            String
-  seoTitle        String?
-  seoDescription  String?
-  published       Boolean       @default(true)
-  featured        Boolean       @default(false)
-  completedAt     DateTime?
-  createdAt       DateTime      @default(now())
-  updatedAt       DateTime      @updatedAt
-  authorId        String?
-  author          User?         @relation("ProjectAuthor", fields: [authorId], references: [id])
-  testimonial     Testimonial?
+  id             String        @id @default(cuid())
+  title          String
+  slug           String        @unique
+  clientName     String
+  clientLogo     String?
+  featuredImage  String
+  gallery        String[]      @default([])
+  location       String
+  scopeOfWork    String
+  timeline       String
+  projectValue   String
+  status         ProjectStatus @default(IN_PROGRESS)
+  servicesUsed   String[]      @default([])
+  industry       String
+  summary        String
+  body           String
+  seoTitle       String?
+  seoDescription String?
+  published      Boolean       @default(true)
+  featured       Boolean       @default(false)
+  completedAt    DateTime?
+  createdAt      DateTime      @default(now())
+  updatedAt      DateTime      @updatedAt
+  authorId       String?
+  author         User?         @relation("ProjectAuthor", fields: [authorId], references: [id])
+  testimonial    Testimonial?
+
+  @@index([published, featured, updatedAt])
+  @@index([status, updatedAt])
+  @@index([industry])
 }
 
 model Testimonial {
@@ -80,6 +87,8 @@ model Testimonial {
   published   Boolean  @default(true)
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
+
+  @@index([published, updatedAt])
 }
 
 model Post {
@@ -97,6 +106,9 @@ model Post {
   updatedAt      DateTime @updatedAt
   authorId       String?
   author         User?    @relation("PostAuthor", fields: [authorId], references: [id])
+
+  @@index([published, updatedAt])
+  @@index([category])
 }
 
 model MediaAsset {
@@ -106,6 +118,8 @@ model MediaAsset {
   resourceType String
   alt          String?
   createdAt    DateTime @default(now())
+
+  @@index([createdAt])
 }
 
 model Client {
@@ -119,6 +133,9 @@ model Client {
   featured    Boolean  @default(true)
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
+
+  @@index([featured, updatedAt])
+  @@index([industry])
 }
 
 model SeoEntry {
@@ -132,17 +149,20 @@ model SeoEntry {
 }
 
 model QuoteRequest {
-  id          String      @id @default(cuid())
-  name        String
-  email       String
-  phone       String
-  company     String?
-  service     String
-  budget      String?
-  message     String
-  status      QuoteStatus @default(NEW)
-  createdAt   DateTime    @default(now())
-  updatedAt   DateTime    @updatedAt
+  id        String      @id @default(cuid())
+  name      String
+  email     String
+  phone     String
+  company   String?
+  service   String
+  budget    String?
+  message   String
+  status    QuoteStatus @default(NEW)
+  createdAt DateTime    @default(now())
+  updatedAt DateTime    @updatedAt
+
+  @@index([status, createdAt])
+  @@index([email])
 }
 
 model ContactMessage {
@@ -151,4 +171,7 @@ model ContactMessage {
   email     String
   message   String
   createdAt DateTime @default(now())
+
+  @@index([createdAt])
+  @@index([email])
 }

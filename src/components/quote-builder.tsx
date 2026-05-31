@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { type FormEvent, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -42,6 +42,13 @@ export function QuoteBuilder({ action }: QuoteBuilderProps) {
 
   const nextStep = () => setStep((s) => Math.min(3, s + 1));
   const prevStep = () => setStep((s) => Math.max(1, s - 1));
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+    if (step < 3) {
+      event.preventDefault();
+      if (step === 1 && !formData.projectType) return;
+      nextStep();
+    }
+  };
 
   const variants = {
     enter: (direction: number) => ({
@@ -78,7 +85,7 @@ export function QuoteBuilder({ action }: QuoteBuilderProps) {
         </span>
       </div>
 
-      <form action={action} className="relative min-h-[420px]">
+      <form id="quote-request-form" action={action} onSubmit={handleSubmit} className="relative min-h-[420px]">
         {/* Hidden inputs to ensure all data is submitted */}
         {Object.entries(formData).map(([key, value]) => (
           <input key={key} type="hidden" name={key} value={value} />
@@ -207,32 +214,36 @@ export function QuoteBuilder({ action }: QuoteBuilderProps) {
             </motion.div>
           )}
         </AnimatePresence>
-
-        <div className="absolute bottom-0 left-0 right-0 flex justify-between pt-6">
-          {step > 1 ? (
-            <Button type="button" variant="outline" onClick={prevStep} className="gap-2 border-white/10 bg-white/5 hover:bg-white/10">
-              <ArrowLeft className="h-4 w-4" /> Back
-            </Button>
-          ) : (
-            <div />
-          )}
-
-          {step < 3 ? (
-            <Button 
-              type="button" 
-              onClick={nextStep} 
-              disabled={step === 1 && !formData.projectType}
-              className="gap-2 bg-gradient-to-r from-[#c96334] to-[#d5a15e] text-black hover:opacity-90"
-            >
-              Next Step <ArrowRight className="h-4 w-4" />
-            </Button>
-          ) : (
-            <Button type="submit" className="gap-2 bg-gradient-to-r from-[#c96334] to-[#d5a15e] text-black hover:opacity-90">
-              Submit Request <ArrowRight className="h-4 w-4" />
-            </Button>
-          )}
-        </div>
       </form>
+
+      <div className="absolute bottom-8 left-8 right-8 flex justify-between pt-6">
+        {step > 1 ? (
+          <Button type="button" variant="outline" onClick={prevStep} className="gap-2 border-white/10 bg-white/5 hover:bg-white/10">
+            <ArrowLeft className="h-4 w-4" /> Back
+          </Button>
+        ) : (
+          <div />
+        )}
+
+        {step < 3 ? (
+          <Button
+            type="button"
+            onClick={nextStep}
+            disabled={step === 1 && !formData.projectType}
+            className="gap-2 bg-gradient-to-r from-[#c96334] to-[#d5a15e] text-black hover:opacity-90"
+          >
+            Next Step <ArrowRight className="h-4 w-4" />
+          </Button>
+        ) : (
+          <Button
+            type="submit"
+            form="quote-request-form"
+            className="gap-2 bg-gradient-to-r from-[#c96334] to-[#d5a15e] text-black hover:opacity-90"
+          >
+            Submit Request <ArrowRight className="h-4 w-4" />
+          </Button>
+        )}
+      </div>
     </div>
   );
 }
