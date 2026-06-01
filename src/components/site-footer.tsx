@@ -17,8 +17,8 @@ export async function SiteFooter() {
             <em>CONSTRUCTIONS PVT. LTD.</em>
           </Link>
           <p className="industrial-footer__tagline">
-            Building infrastructure, delivering excellence and creating value across
-            industrial, commercial and public-sector construction.
+            Engineering-led construction for industrial, commercial, residential and
+            public-sector projects.
           </p>
           <div className="iso-cluster" aria-label="Certification badges">
             {["9001", "14001", "45001"].map((iso) => (
@@ -30,6 +30,7 @@ export async function SiteFooter() {
           <h3>COMPANY</h3>
           <Link href="/about">About</Link>
           <Link href="/services">Services</Link>
+          <Link href="/testimonials">Testimonials</Link>
           <Link href="/careers">Careers</Link>
           <Link href="/contact">Contact</Link>
         </div>
@@ -60,21 +61,21 @@ export async function SiteFooter() {
           <a href="mailto:admin@docksideconstructions.com">admin@docksideconstructions.com</a>
         </div>
         <div>
-          <h3>NEWSLETTER</h3>
+          <h3>CLIENT FEEDBACK</h3>
           <p className="industrial-footer__tagline">
-            Project updates, infrastructure notes and execution insights.
+            Client confidence notes connected to real project delivery.
           </p>
-          <form className="footer-newsletter">
-            <input aria-label="Email address" placeholder="Enter your email" type="email" />
-            <button aria-label="Subscribe" type="button">
+          <div className="footer-newsletter">
+            <input aria-label="Project reference" placeholder="Project reference" type="text" />
+            <Link href="/testimonials" aria-label="Open testimonials">
               <ArrowRight className="size-4" aria-hidden="true" />
-            </button>
-          </form>
+            </Link>
+          </div>
         </div>
       </div>
       <div className="industrial-footer__bar">
         <span>&copy; 2026 DOCKSIDE CONSTRUCTIONS PRIVATE LIMITED</span>
-        <span>BUILDING INFRASTRUCTURE. DELIVERING EXCELLENCE.</span>
+        <span>DISCIPLINED PLANNING. CONTROLLED EXECUTION.</span>
       </div>
     </footer>
   );

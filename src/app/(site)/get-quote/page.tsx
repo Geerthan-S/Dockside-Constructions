@@ -2,6 +2,8 @@ import { redirect } from "next/navigation";
 import { z } from "zod";
 import { PageHero } from "@/components/page-hero";
 import { QuoteBuilder } from "@/components/quote-builder";
+import { SiteContentSections } from "@/components/site-content-sections";
+import { getSitePage } from "@/lib/repositories";
 import { canUseDatabase, getPrisma } from "@/lib/prisma";
 import { industrialImages } from "@/lib/content";
 
@@ -19,8 +21,15 @@ const quoteSchema = z.object({
   targetStart: z.string().optional(),
   quantity: z.string().optional(),
   tenderType: z.string().optional(),
+  documentLinks: z.string().optional(),
   message: z.string().min(10),
 });
+
+const splitDocumentLinks = (value?: string) =>
+  String(value ?? "")
+    .split(/[\n,]+/)
+    .map((item) => item.trim())
+    .filter(Boolean);
 
 async function submitQuote(formData: FormData) {
   "use server";
@@ -30,7 +39,17 @@ async function submitQuote(formData: FormData) {
 
   if (!canUseDatabase()) redirect("/get-quote?error=database");
 
-  const { projectLocation, projectType, targetStart, quantity, tenderType, message, ...quote } = parsed.data;
+  const {
+    projectLocation,
+    projectType,
+    targetStart,
+    quantity,
+    tenderType,
+    documentLinks,
+    message,
+    ...quote
+  } = parsed.data;
+  const documentLinkList = splitDocumentLinks(documentLinks);
   const enrichedMessage = [
     message,
     "",
@@ -40,21 +59,27 @@ async function submitQuote(formData: FormData) {
     targetStart ? `Target start: ${targetStart}` : null,
     quantity ? `Approx. quantity / area: ${quantity}` : null,
     tenderType ? `Tender / private: ${tenderType}` : null,
+    documentLinkList.length ? `Supporting document links: ${documentLinkList.join(", ")}` : null,
   ].filter(Boolean).join("\n");
 
-  await getPrisma().quoteRequest.create({ data: { ...quote, message: enrichedMessage } });
+  await getPrisma().quoteRequest.create({
+    data: { ...quote, documentLinks: documentLinkList, message: enrichedMessage },
+  });
   redirect("/get-quote/thank-you");
 }
 
-export default function GetQuotePage() {
+export default async function GetQuotePage() {
+  const page = await getSitePage("get-quote");
+
   return (
     <>
       <PageHero
         eyebrow="Get Quote"
-        title="Convert your scope into an execution-ready project discussion."
-        description="Share the essentials and Dockside will respond with the right technical and commercial team."
-        image={industrialImages.structure}
+        title={page?.heroTitle ?? "Convert your scope into an execution-ready project discussion."}
+        description={page?.heroDescription ?? "Share the essentials and Dockside will respond with the right technical and commercial team."}
+        image={page?.heroImage ?? industrialImages.structure}
       />
+      <SiteContentSections sections={page?.sections ?? []} />
       <section className="quote-intake mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:px-8">
         <div>
           <span>[ INTAKE ]</span>

@@ -11,6 +11,7 @@ const navItems = [
   ["About Us", "/about"],
   ["Services", "/services"],
   ["Projects", "/projects"],
+  ["Testimonials", "/testimonials"],
   ["Careers", "/careers"],
   ["Contact", "/contact"],
 ];

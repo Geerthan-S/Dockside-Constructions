@@ -42,8 +42,8 @@ export function Testimonials({ projects }: { projects: ProjectView[] }) {
   return (
     <section className="luxury-testimonials" aria-label="Client testimonials">
       <div>
-        <span>Clients love us</span>
-        <h2 data-text-reveal>What They Say</h2>
+        <span>Client confidence</span>
+        <h2 data-text-reveal>Delivery Feedback</h2>
       </div>
       <div className="luxury-testimonials__grid" data-stagger-reveal>
         {testimonials.map((item) => (

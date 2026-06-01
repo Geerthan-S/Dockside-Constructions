@@ -5,32 +5,32 @@ import { RevealText } from "@/components/motion/reveal";
 const steps = [
   {
     phase: "01",
-    title: "Consultation",
-    text: "Understanding your needs, site constraints and delivery goals.",
+    title: "Scope Review",
+    text: "Understanding site constraints, drawings, quantities and delivery goals.",
     icon: Handshake,
   },
   {
     phase: "02",
     title: "Planning",
-    text: "Design, budgeting and strategy development with clear milestones.",
+    text: "Sequencing, procurement, budget alignment and milestone governance.",
     icon: PenTool,
   },
   {
     phase: "03",
     title: "Execution",
-    text: "Building with precision, quality controls and site discipline.",
+    text: "Field delivery with safety controls, QA checks and site discipline.",
     icon: Wrench,
   },
   {
     phase: "04",
-    title: "Delivery",
-    text: "On-time delivery with complete satisfaction and handover proof.",
+    title: "Handover",
+    text: "Closeout records, inspection closure and owner-ready handover proof.",
     icon: ClipboardCheck,
   },
   {
     phase: "05",
     title: "Support",
-    text: "Ongoing support beyond completion for long-term confidence.",
+    text: "Practical post-handover coordination for long-term asset confidence.",
     icon: ShieldCheck,
   },
 ];
@@ -41,7 +41,7 @@ export function ProcessTimeline() {
       <div className="luxury-timeline__sticky">
         <span>Our process</span>
         <RevealText>
-          <h2 data-text-reveal>Built on trust, delivered with excellence</h2>
+          <h2 data-text-reveal>Controlled from scope review to handover</h2>
         </RevealText>
         <Link href="/about" className="studio-button studio-button--outline">
           Learn more about us <ArrowRight className="size-4" aria-hidden="true" />

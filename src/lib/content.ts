@@ -79,6 +79,16 @@ export const industrialImages = {
     "https://images.pexels.com/photos/162568/oil-pump-jack-sunset-clouds-silhouette-162568.jpeg?auto=compress&cs=tinysrgb&w=1800",
   heroCinematic:
     "/dockside-hero-construction.png",
+  aboutHero:
+    "/hero-image/about.png",
+  servicesHero:
+    "/hero-image/services.png",
+  projectsHero:
+    "/hero-image/projects.png",
+  testimonialsHero:
+    "/hero-image/testimonials.png",
+  careersHero:
+    "/hero-image/careers.png",
   warehouseDusk:
     "https://images.pexels.com/photos/236705/pexels-photo-236705.jpeg?auto=compress&cs=tinysrgb&w=1800",
   logisticsAerial:
@@ -87,85 +97,266 @@ export const industrialImages = {
     "https://images.pexels.com/photos/325185/pexels-photo-325185.jpeg?auto=compress&cs=tinysrgb&w=1800",
   steelExecution:
     "https://images.pexels.com/photos/1216589/pexels-photo-1216589.jpeg?auto=compress&cs=tinysrgb&w=1800",
+  interiors:
+    "https://images.pexels.com/photos/1599791/pexels-photo-1599791.jpeg?auto=compress&cs=tinysrgb&w=1800",
+  residential:
+    "https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg?auto=compress&cs=tinysrgb&w=1800",
+};
+
+export type ServiceCategory = {
+  title: string;
+  slug: string;
+  image: string;
+  description: string;
+  overview: string;
+  deliverables: string[];
+  process: string[];
+  benefits: string[];
+  gallery: string[];
+  proof: string;
+  faqs: Array<{ question: string; answer: string }>;
 };
 
 export const serviceCategories = [
   {
-    title: "Civil Construction",
-    slug: "civil-construction",
-    image: industrialImages.foundation,
-    deliverables: ["RCC and masonry works", "Foundations and slabs", "Renovation and fit-out civil works", "QA inspection records"],
-    proof: "Used across industrial, commercial and active facility environments where safety and handover documentation matter.",
+    title: "Residential Construction",
+    slug: "residential-construction",
+    image: industrialImages.residential,
     description:
-      "Residential, commercial and industrial civil works executed with QA/QC controls, site supervision and disciplined handover documentation.",
+      "Custom homes, villas, residential developments, structural construction, renovations and site development.",
+    overview:
+      "Residential delivery is managed with the same engineering discipline Dockside applies to larger civil programs: verified drawings, dependable site supervision, material controls and clean handover documentation.",
+    deliverables: [
+      "Custom homes and villas",
+      "Residential developments",
+      "Structural construction",
+      "Renovation and site development",
+    ],
+    process: [
+      "Site review, scope definition and budget alignment",
+      "Design coordination, approvals and construction planning",
+      "Foundation, structural and civil execution with QA checks",
+      "Finishes, services coordination and owner-ready handover",
+    ],
+    benefits: [
+      "Experienced engineering supervision",
+      "Clear cost and schedule visibility",
+      "Quality-led structural and finishing standards",
+      "Reliable closeout documentation",
+    ],
+    gallery: [industrialImages.residential, industrialImages.foundation, industrialImages.planning],
+    proof:
+      "Suited for residential clients who want professional controls, documented execution and a construction process that stays organized from site start to handover.",
+    faqs: [
+      {
+        question: "Can Dockside handle villas and custom homes?",
+        answer:
+          "Yes. Dockside supports villas, custom homes, residential developments, structural construction, renovations and site development scopes.",
+      },
+      {
+        question: "Can the team coordinate design and site execution?",
+        answer:
+          "Yes. The team can work with drawings, consultants, approvals and site milestones so construction stays aligned with the approved scope.",
+      },
+    ],
   },
   {
-    title: "Roads & Highways",
-    slug: "roads-highways",
-    image: industrialImages.roadwork,
-    deliverables: ["BT and CC road formation", "Strengthening and renewal", "Culverts and storm water drains", "Road safety interfaces"],
-    proof: "Relevant to PWD Puducherry road strengthening, renewal, drainage and public infrastructure scopes.",
+    title: "Commercial Construction",
+    slug: "commercial-construction",
+    image: industrialImages.industrialCampus,
     description:
-      "BT and CC roads, strengthening, renewal, grading, drainage integration and infrastructure development works.",
+      "Office buildings, retail developments, commercial complexes, mixed-use developments and business infrastructure.",
+    overview:
+      "Commercial projects need controlled sequencing, practical coordination and a clear path from shell works to operating-ready spaces. Dockside supports business infrastructure with disciplined planning and milestone governance.",
+    deliverables: [
+      "Office and retail buildings",
+      "Commercial complexes",
+      "Mixed-use developments",
+      "Campus infrastructure support",
+    ],
+    process: [
+      "Commercial brief, usage study and constructability review",
+      "Quantity, procurement and milestone planning",
+      "Civil, structural and utility coordination",
+      "Inspection, snag closure and operational handover",
+    ],
+    benefits: [
+      "Reduced coordination friction across vendors",
+      "Execution aligned to business opening timelines",
+      "Professional reporting for owners and consultants",
+      "Durable civil and utility outcomes",
+    ],
+    gallery: [industrialImages.industrialCampus, industrialImages.highRise, industrialImages.planning],
+    proof:
+      "Relevant to commercial campuses such as Chennai One IT SEZ, where survey-led site development and large-format preparation require precision.",
+    faqs: [
+      {
+        question: "Can Dockside support commercial campus works?",
+        answer:
+          "Yes. Dockside executes commercial campus development, site preparation, civil works and infrastructure support for business environments.",
+      },
+      {
+        question: "Do you work with consultants and owner-side project teams?",
+        answer:
+          "Yes. Dockside is structured to coordinate with consultants, client-side project teams, vendors and approval stakeholders.",
+      },
+    ],
   },
   {
-    title: "Railway Works",
-    slug: "railway-works",
-    image: industrialImages.crane,
-    deliverables: ["Siding support works", "Yard interfaces", "Utility coordination", "Industrial logistics access"],
-    proof: "Suited for logistics-linked industrial campuses where access, grading and movement corridors must align.",
+    title: "Industrial Construction",
+    slug: "industrial-construction",
+    image: industrialImages.warehouse,
     description:
-      "Railway siding and related infrastructure support for industrial campuses and logistics-linked developments.",
+      "Factories, warehouses, PEB structures, logistics infrastructure, industrial campuses, utility buildings and process-support facilities.",
+    overview:
+      "Industrial construction is Dockside's strongest positioning: repeat execution across active facilities, logistics assets and production-support buildings where safety, quality and uptime matter.",
+    deliverables: [
+      "Factories, warehouses and utility buildings",
+      "PEB and structural coordination",
+      "RCC structures and industrial utilities",
+      "Logistics and process-support infrastructure",
+    ],
+    process: [
+      "Engineering review, site constraints and utility mapping",
+      "Method statements, safety controls and procurement planning",
+      "Civil, structural, RCC, utility and MEP interface execution",
+      "QA records, testing support and phased handover",
+    ],
+    benefits: [
+      "Experience inside active industrial environments",
+      "Strong civil, structural and utility coordination",
+      "Safety-focused execution culture",
+      "Handover discipline for long-term facility reliability",
+    ],
+    gallery: [industrialImages.warehouse, industrialImages.steelExecution, industrialImages.logistics],
+    proof:
+      "Seen across Whirlpool repeat works, Lodha Industrial Park, Adani Logistics and industrial utility scopes that require disciplined field coordination.",
+    faqs: [
+      {
+        question: "Can Dockside work inside active industrial facilities?",
+        answer:
+          "Yes. The company has experience with active production-support environments, renovations, utilities and civil-electrical interfaces.",
+      },
+      {
+        question: "Do you handle large-format site development?",
+        answer:
+          "Yes. Dockside supports land grading, earthwork, site development, drainage, RCC and structural scopes for industrial campuses.",
+      },
+    ],
   },
   {
-    title: "Electrical Works",
-    slug: "electrical-works",
-    image: industrialImages.planning,
-    deliverables: ["HT/LT utility coordination", "Fire hydrant pipeline interfaces", "MEP civil coordination", "Testing support"],
-    proof: "Aligned with repeat industrial works involving utilities, reliability labs and active production support buildings.",
-    description:
-      "HT/LT installations, electrical utilities, fire hydrant pipeline interfaces and coordinated MEP execution.",
-  },
-  {
-    title: "Industrial Projects",
-    slug: "industrial-projects",
-    image: industrialImages.highRise,
-    deliverables: ["Warehouse and factory works", "PEB and structural coordination", "Mezzanine floors", "Hazardous storage sheds"],
-    proof: "Seen in Whirlpool repeat works, Lodha Industrial Park and logistics infrastructure programs.",
-    description:
-      "Warehouses, factories, PEB structures, mezzanine floors, hazardous storage sheds, renovations and process-ready buildings.",
-  },
-  {
-    title: "Water Infrastructure & Drainage",
-    slug: "water-infrastructure-drainage",
+    title: "Renovation Services",
+    slug: "renovation-services",
     image: industrialImages.concreteDetail,
-    deliverables: ["Storm water drains", "Culverts and channels", "Water management works", "Site drainage integration"],
-    proof: "Critical across roads, logistics parks and industrial sites where long-term asset performance depends on drainage.",
     description:
-      "Storm water drains, culverts, drainage systems, water management works and allied civil infrastructure.",
+      "Building modernization, structural upgrades, industrial renovations, facility improvements and refurbishment projects.",
+    overview:
+      "Renovation work demands controlled intervention, practical sequencing and safe execution around existing operations. Dockside upgrades facilities without treating refurbishment as secondary work.",
+    deliverables: [
+      "Building modernization",
+      "Structural upgrades",
+      "Industrial renovations",
+      "Facility improvements and refurbishment",
+    ],
+    process: [
+      "Existing-condition assessment and risk review",
+      "Phased execution plan for active or constrained sites",
+      "Civil, structural, services and finishing upgrades",
+      "Closeout inspection and operational handback",
+    ],
+    benefits: [
+      "Useful for active facilities and production-support spaces",
+      "Practical site controls around ongoing operations",
+      "Improved durability, safety and space performance",
+      "Clear documentation for completed upgrades",
+    ],
+    gallery: [industrialImages.concreteDetail, industrialImages.site, industrialImages.safety],
+    proof:
+      "Aligned with repeat industrial works involving reliability labs, packaging labs, fire hydrant interfaces, mezzanine floors and facility improvements.",
+    faqs: [
+      {
+        question: "Can renovations be phased around operations?",
+        answer:
+          "Yes. Dockside can sequence renovation scopes around existing facility constraints, access requirements and safety controls.",
+      },
+      {
+        question: "Do you handle structural upgrade work?",
+        answer:
+          "Yes. Structural upgrades, RCC works, civil improvements and utility interfaces can be planned as part of renovation programs.",
+      },
+    ],
   },
   {
-    title: "Road Safety & Traffic Systems",
-    slug: "road-safety-traffic-systems",
-    image: industrialImages.safety,
-    deliverables: ["Signage and barriers", "Road markings", "Traffic control systems", "Safety equipment installation"],
-    proof: "Supports public infrastructure, industrial campuses and movement-heavy logistics environments.",
+    title: "Interior Solutions",
+    slug: "interior-solutions",
+    image: industrialImages.interiors,
     description:
-      "Supply and installation of road safety equipment, signage, barriers, road markings and traffic control solutions.",
+      "Commercial interiors, industrial workspace interiors, office fit-outs and functional design implementation.",
+    overview:
+      "Interior delivery at Dockside is treated as functional infrastructure: planned around workflow, safety, maintainability and long-term usability rather than surface styling alone.",
+    deliverables: [
+      "Commercial interiors",
+      "Industrial workspace interiors",
+      "Office fit-outs",
+      "Functional design implementation",
+    ],
+    process: [
+      "Space brief, user requirements and layout coordination",
+      "Material, services and execution planning",
+      "Fit-out, finishing and utility interface delivery",
+      "Snag closure, documentation and operational handover",
+    ],
+    benefits: [
+      "Function-first workplace outcomes",
+      "Civil and services coordination under one delivery lens",
+      "Professional fit-out execution for business environments",
+      "Clean closeout for immediate occupation",
+    ],
+    gallery: [industrialImages.interiors, industrialImages.planning, industrialImages.highRise],
+    proof:
+      "Supports office fit-outs, industrial workspace improvements and functional interiors for clients who need reliable occupancy outcomes.",
+    faqs: [
+      {
+        question: "Can Dockside manage office fit-outs?",
+        answer:
+          "Yes. Dockside supports commercial interiors, office fit-outs and functional workspace implementation.",
+      },
+      {
+        question: "Are interiors coordinated with civil and utility works?",
+        answer:
+          "Yes. Interior scopes can be coordinated with civil, services and facility requirements so the space is ready for use.",
+      },
+    ],
   },
+] satisfies ServiceCategory[];
+
+export const technicalCapabilities = [
+  "Roads & Highways",
+  "Railway Infrastructure",
+  "Water Infrastructure",
+  "Storm Water Drainage",
+  "Utility Development",
+  "HT/LT Electrical Works",
+  "Fire Hydrant Systems",
+  "Site Development",
+  "Land Grading",
+  "RCC Structures",
+  "Structural Works",
+  "Industrial Utilities",
+  "Traffic Safety Systems",
 ];
 
 export const services = serviceCategories.map((service) => service.title);
 
 export const industries = [
   "Industrial manufacturing",
-  "Public works",
-  "Road infrastructure",
-  "Manufacturing",
-  "Warehousing",
-  "Logistics parks",
   "Commercial campuses",
+  "Residential developments",
+  "Logistics parks",
+  "Warehousing",
+  "Public infrastructure",
   "Government infrastructure",
+  "Institutional infrastructure",
 ];
 
 export const certifications = [
@@ -242,19 +433,24 @@ export const clientLogos = seedClients.map((client) => client.name.toUpperCase()
 
 export const faqs = [
   {
-    question: "Can Dockside handle design-build execution?",
+    question: "Can Dockside support large industrial and infrastructure scopes?",
     answer:
-      "Yes. Dockside supports architectural design, project management consultancy, structural coordination, vendor alignment and milestone governance.",
+      "Yes. Dockside is positioned for industrial, commercial and public-sector construction, including civil works, utilities, site development, RCC, structural works, drainage and facility upgrades.",
   },
   {
-    question: "Can admins update projects without developers?",
+    question: "Can admins update website content without developers?",
     answer:
-      "Yes. The CMS supports project CRUD, galleries, testimonials, SEO metadata and project status updates.",
+      "Yes. The admin panel supports project CRUD, clients, testimonials, insights, SEO and editable page content for the public site.",
   },
   {
-    question: "Do you support residential and commercial work?",
+    question: "Which ISO systems does Dockside operate under?",
     answer:
-      "Yes. DCPL executes civil construction, industrial projects, road works, electrical utilities, drainage and public infrastructure scopes.",
+      "Dockside operates under ISO 9001:2015, ISO 14001:2015 and ISO 45001:2018 management systems for quality, environmental responsibility and occupational health and safety.",
+  },
+  {
+    question: "Which core services are offered?",
+    answer:
+      "The core service lines are Residential Construction, Commercial Construction, Industrial Construction, Renovation Services and Interior Solutions.",
   },
 ];
 
@@ -273,7 +469,7 @@ export const seedProjects: ProjectView[] = [
     timeline: "20+ works completed in the last 5 years",
     projectValue: "INR 400+ Lakhs",
     status: "COMPLETED",
-    servicesUsed: ["Industrial projects", "Civil construction", "Electrical works", "Interior works"],
+    servicesUsed: ["Industrial Construction", "Renovation Services", "Interior Solutions", "Fire Hydrant Systems"],
     industry: "Industrial manufacturing",
     summary:
       "A multi-scope industrial execution program covering production support buildings, renovation, utilities and civil-electrical works.",
@@ -305,7 +501,7 @@ export const seedProjects: ProjectView[] = [
     timeline: "Program delivery",
     projectValue: "INR 50+ Crores",
     status: "COMPLETED",
-    servicesUsed: ["Earthwork", "Land grading", "Site development", "Infrastructure works"],
+    servicesUsed: ["Industrial Construction", "Land Grading", "Site Development", "Utility Development"],
     industry: "Logistics parks",
     summary:
       "Large-format industrial park development with land grading, site development and common infrastructure scope.",
@@ -337,7 +533,7 @@ export const seedProjects: ProjectView[] = [
     timeline: "Ongoing",
     projectValue: "INR 10 Crores",
     status: "IN_PROGRESS",
-    servicesUsed: ["Civil construction", "RCC works", "Drainage", "Structural works"],
+    servicesUsed: ["Industrial Construction", "RCC Structures", "Storm Water Drainage", "Structural Works"],
     industry: "Logistics",
     summary:
       "Ongoing civil, RCC, drainage and structural works for logistics infrastructure in Karnataka.",
@@ -363,7 +559,7 @@ export const seedProjects: ProjectView[] = [
     timeline: "Ongoing",
     projectValue: "INR 300+ Crores overall project value",
     status: "IN_PROGRESS",
-    servicesUsed: ["Land development", "Soil filling", "Survey works", "Site preparation"],
+    servicesUsed: ["Commercial Construction", "Site Development", "Land Grading", "Survey works"],
     industry: "Commercial campus",
     summary:
       "Large-scale campus land development and site preparation scope for a major Chennai commercial development.",

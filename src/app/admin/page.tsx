@@ -1,4 +1,4 @@
-import { Activity, Database, FileText, MessageSquare, Users, Wrench, type LucideIcon } from "lucide-react";
+import { Activity, Database, FileCog, FileText, MessageSquare, Users, Wrench, type LucideIcon } from "lucide-react";
 import { getAdminMetrics } from "@/lib/repositories";
 import { requireAdmin } from "@/lib/admin";
 
@@ -10,9 +10,10 @@ export default async function AdminPage() {
 
   const cards: Array<[string, number, LucideIcon]> = [
     ["Projects", metrics.projects, Wrench],
+    ["Site Pages", metrics.sitePages, FileCog],
     ["Clients", metrics.clients, Users],
-    ["Blog Posts", metrics.posts, FileText],
     ["Testimonials", metrics.testimonials, MessageSquare],
+    ["Articles", metrics.posts, FileText],
     ["Quote Requests", metrics.quoteRequests, Database],
   ];
 
@@ -21,7 +22,7 @@ export default async function AdminPage() {
       <div className="admin-page-title flex items-center justify-between gap-4">
         <div>
           <h1>Operations dashboard</h1>
-          <p className="mt-3">Manage projects, insights, testimonials, media and SEO from a premium control surface built for execution visibility.</p>
+          <p className="mt-3">Manage projects, testimonials, articles, media and SEO from a premium control surface built for execution visibility.</p>
         </div>
         <Activity className="size-8 text-primary" />
       </div>
@@ -45,7 +46,7 @@ export default async function AdminPage() {
           <div className="rounded-[18px] border border-white/10 bg-black/20 p-5">
             <p className="font-mono text-xs uppercase tracking-[0.12em] text-primary">Execution queue</p>
             <div className="mt-6 grid gap-3">
-              {["Project media uploads", "Case study publishing", "SEO route updates", "Quote request review"].map((item) => (
+              {["Project media uploads", "Testimonial publishing", "SEO route updates", "Quote request review"].map((item) => (
                 <span key={item} className="rounded-full border border-white/10 px-4 py-3 text-sm text-muted-foreground">{item}</span>
               ))}
             </div>

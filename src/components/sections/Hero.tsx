@@ -5,9 +5,24 @@ import gsap from "gsap";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
-export function Hero() {
+type HeroProps = {
+  eyebrow?: string;
+  title?: string;
+  description?: string;
+  primaryLabel?: string;
+  primaryHref?: string;
+};
+
+export function Hero({
+  eyebrow = "Engineering-led infrastructure partner",
+  title = "Infrastructure Delivered|With Discipline",
+  description = "Premium construction solutions for industrial, commercial and public infrastructure projects, delivered with precision, safety and disciplined project control.",
+  primaryLabel = "Explore Projects",
+  primaryHref = "/projects",
+}: HeroProps) {
   const root = useRef<HTMLElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const titleLines = title.split("|").map((line) => line.trim()).filter(Boolean);
 
   useEffect(() => {
     if (videoRef.current) {
@@ -45,24 +60,28 @@ export function Hero() {
       >
         <source src="/bg_video.mp4" type="video/mp4" />
       </video>
-      <div className="absolute inset-0 bg-gradient-to-t from-[#06070a] via-[#06070a]/40 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-t from-[#06070a]/25 via-[#06070a]/10 to-transparent" />
 
       <div className="hero-dust-layer" aria-hidden="true" />
       <div className="hero-light-sweep" aria-hidden="true" />
       <div className="premium-hero__copy">
-        <p className="hero-kicker studio-label">We build more than structures</p>
+        <p className="hero-kicker studio-label">{eyebrow}</p>
         <h1>
-          <span className="hero-line">We Build</span>
-          <span className="hero-line">Your</span>
-          <span className="hero-line hero-line--accent">Future</span>
+          {titleLines.map((line, index) => (
+            <span
+              className={`hero-line ${index === titleLines.length - 1 ? "hero-line--accent" : ""}`}
+              key={line}
+            >
+              {line}
+            </span>
+          ))}
         </h1>
         <p className="hero-copy premium-hero__text">
-          Premium construction solutions for industrial, commercial and public infrastructure
-          projects, delivered with precision, safety and disciplined project control.
+          {description}
         </p>
         <div className="hero-actions premium-hero__actions">
-          <Link href="/projects" className="studio-button studio-button--fill">
-            Explore Projects
+          <Link href={primaryHref} className="studio-button studio-button--fill">
+            {primaryLabel}
             <ArrowRight className="size-4" aria-hidden="true" />
           </Link>
         </div>

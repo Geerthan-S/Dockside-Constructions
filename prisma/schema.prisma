@@ -148,18 +148,35 @@ model SeoEntry {
   updatedAt   DateTime @updatedAt
 }
 
+model SitePage {
+  id              String   @id @default(cuid())
+  slug            String   @unique
+  title           String
+  description     String
+  heroTitle       String
+  heroDescription String
+  heroImage       String
+  sections        Json
+  published       Boolean  @default(true)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  @@index([published, slug])
+}
+
 model QuoteRequest {
-  id        String      @id @default(cuid())
-  name      String
-  email     String
-  phone     String
-  company   String?
-  service   String
-  budget    String?
-  message   String
-  status    QuoteStatus @default(NEW)
-  createdAt DateTime    @default(now())
-  updatedAt DateTime    @updatedAt
+  id            String      @id @default(cuid())
+  name          String
+  email         String
+  phone         String
+  company       String?
+  service       String
+  budget        String?
+  message       String
+  documentLinks String[]    @default([])
+  status        QuoteStatus @default(NEW)
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @updatedAt
 
   @@index([status, createdAt])
   @@index([email])

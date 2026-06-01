@@ -1,12 +1,13 @@
 import { redirect } from "next/navigation";
-import Image from "next/image";
 import { z } from "zod";
 import { PageHero } from "@/components/page-hero";
+import { SiteContentSections } from "@/components/site-content-sections";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { industrialImages } from "@/lib/content";
+import { getSitePage } from "@/lib/repositories";
 import { canUseDatabase, getPrisma } from "@/lib/prisma";
 
 export const metadata = { title: "Contact" };
@@ -27,38 +28,21 @@ async function submitContact(formData: FormData) {
   redirect("/contact/thank-you");
 }
 
-export default function ContactPage() {
+export default async function ContactPage() {
+  const page = await getSitePage("contact");
+
   return (
     <>
       <PageHero
         eyebrow="Contact"
-        title="Speak with Dockside about your next project."
-        description="Connect with DCPL for civil construction, industrial works, road infrastructure, drainage, electrical utilities and project management inquiries."
-        image={industrialImages.hero}
+        title={page?.heroTitle ?? "Speak with Dockside about your next project."}
+        description={page?.heroDescription ?? "Connect with DCPL for construction, infrastructure and project management inquiries."}
+        image={page?.heroImage ?? industrialImages.hero}
       />
-      <section className="mx-auto grid max-w-7xl gap-10 px-4 py-20 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:px-8">
-        <div className="glass-panel rounded-lg p-8">
-          <h2 className="text-3xl font-semibold">Registered office</h2>
-          <div className="mt-8 grid gap-5 text-muted-foreground">
-            <p className="flex gap-3"><span className="font-mono text-primary">[ LOC ]</span> No.56, V.G.P. Nagar East, Salamedu, Villupuram - 605401</p>
-            <p className="flex gap-3"><span className="font-mono text-primary">[ TEL ]</span> +91 89259 22737</p>
-            <p id="mail" className="flex gap-3"><span className="font-mono text-primary">[ MAIL ]</span> admin@docksideconstructions.com</p>
-            <p id="whatsapp" className="flex gap-3"><span className="font-mono text-primary">[ WA ]</span> WhatsApp: +91 89259 22737</p>
-          </div>
-          <div id="socials" className="mt-8 flex gap-3">
-            <a className="glass-panel-soft rounded-md p-3 font-mono text-xs" href="#" aria-label="LinkedIn">LINKEDIN</a>
-            <a className="glass-panel-soft rounded-md p-3 font-mono text-xs" href="#" aria-label="Instagram">INSTAGRAM</a>
-          </div>
-          <div className="contact-site-image">
-            <Image
-              src={industrialImages.planning}
-              alt="Construction planning discussion"
-              fill
-              sizes="(min-width: 1024px) 36vw, 100vw"
-            />
-          </div>
-        </div>
+      <SiteContentSections sections={page?.sections ?? []} />
+      <section className="mx-auto max-w-4xl px-4 py-20 sm:px-6 lg:px-8">
         <form id="inquiry-form" action={submitContact} className="glass-panel grid gap-5 rounded-lg p-8">
+          <h2 className="text-3xl font-semibold">Contact form</h2>
           <div className="grid gap-2"><Label htmlFor="name">Name</Label><Input id="name" name="name" placeholder="Your name" required /></div>
           <div className="grid gap-2"><Label htmlFor="email">Email</Label><Input id="email" name="email" type="email" placeholder="you@company.com" required /></div>
           <div className="grid gap-2"><Label htmlFor="message">Message</Label><Textarea id="message" name="message" placeholder="Tell us how we can help" rows={6} required /></div>

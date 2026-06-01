@@ -6,7 +6,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { requireAdmin } from "@/lib/admin";
 import { getPosts } from "@/lib/repositories";
 
-export const metadata = { title: "Blog CMS" };
+export const metadata = { title: "Articles CMS" };
 
 export default async function AdminBlogPage() {
   await requireAdmin();
@@ -15,8 +15,10 @@ export default async function AdminBlogPage() {
   return (
     <div className="grid gap-8 xl:grid-cols-[0.9fr_1.1fr]">
       <div>
-        <h1 className="text-3xl font-semibold">Blog CRUD</h1>
-        <p className="mt-2 text-muted-foreground">Create insights and success-story articles with SEO slugs.</p>
+        <h1 className="text-3xl font-semibold">Articles CMS</h1>
+        <p className="mt-2 text-muted-foreground">
+          Keep longer-form company articles here. The main public navigation now points to testimonials.
+        </p>
         <div className="mt-8 grid gap-3">
           {posts.map((post) => (
             <div key={post.id} className="rounded-md border border-white/10 bg-card/45 p-4">
@@ -38,4 +40,3 @@ export default async function AdminBlogPage() {
     </div>
   );
 }
-

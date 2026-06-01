@@ -6,17 +6,18 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { ArrowRight, ArrowLeft, Building2, HardHat, Factory, MapPin } from "lucide-react";
+import { ArrowRight, ArrowLeft, Building2, Factory, FileText, House, PanelsTopLeft, Wrench } from "lucide-react";
 
 type QuoteBuilderProps = {
   action: (formData: FormData) => Promise<void>;
 };
 
 const projectTypes = [
-  { id: "industrial", label: "Industrial Facility", icon: Factory },
-  { id: "civil", label: "Civil Construction", icon: Building2 },
-  { id: "infrastructure", label: "Road & Infra", icon: MapPin },
-  { id: "commercial", label: "Commercial Campus", icon: HardHat },
+  { id: "residential", label: "Residential Construction", icon: House },
+  { id: "commercial", label: "Commercial Construction", icon: Building2 },
+  { id: "industrial", label: "Industrial Construction", icon: Factory },
+  { id: "renovation", label: "Renovation Services", icon: Wrench },
+  { id: "interiors", label: "Interior Solutions", icon: PanelsTopLeft },
 ];
 
 export function QuoteBuilder({ action }: QuoteBuilderProps) {
@@ -34,6 +35,7 @@ export function QuoteBuilder({ action }: QuoteBuilderProps) {
     phone: "",
     company: "",
     message: "",
+    documentLinks: "",
   });
 
   const updateForm = (key: string, value: string) => {
@@ -105,7 +107,7 @@ export function QuoteBuilder({ action }: QuoteBuilderProps) {
               <h3 className="font-display text-3xl font-normal tracking-wide text-white">
                 What are you building?
               </h3>
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                 {projectTypes.map((type) => {
                   const Icon = type.icon;
                   const isSelected = formData.projectType === type.label;
@@ -209,6 +211,19 @@ export function QuoteBuilder({ action }: QuoteBuilderProps) {
                     placeholder="Describe the scope, unique challenges, and requirements..."
                     required 
                   />
+                </div>
+                <div className="grid gap-2 md:col-span-2">
+                  <Label>Supporting Document Links</Label>
+                  <div className="relative">
+                    <FileText className="pointer-events-none absolute left-3 top-3 size-4 text-[#d5a15e]" aria-hidden="true" />
+                    <Textarea
+                      value={formData.documentLinks}
+                      onChange={(e) => updateForm("documentLinks", e.target.value)}
+                      rows={3}
+                      className="pl-10"
+                      placeholder="Paste Drive, Dropbox, tender, drawing or BOQ links..."
+                    />
+                  </div>
                 </div>
               </div>
             </motion.div>

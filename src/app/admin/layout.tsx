@@ -1,14 +1,15 @@
 import Link from "next/link";
 import { redirect } from "next/navigation";
-import { BarChart3, FileText, ImageIcon, LayoutDashboard, LogOut, MessageSquare, Search, Shield, Users, Wrench, type LucideIcon } from "lucide-react";
+import { BarChart3, FileCog, FileText, ImageIcon, LayoutDashboard, LogOut, MessageSquare, Search, Shield, Users, Wrench, type LucideIcon } from "lucide-react";
 import { auth, signOut } from "@/auth";
 
 const adminNav: Array<[string, string, LucideIcon]> = [
   ["Overview", "/admin", LayoutDashboard],
   ["Projects", "/admin/projects", Wrench],
+  ["Site Content", "/admin/site-content", FileCog],
   ["Clients", "/admin/clients", Users],
-  ["Blog", "/admin/blog", FileText],
   ["Testimonials", "/admin/testimonials", MessageSquare],
+  ["Articles", "/admin/blog", FileText],
   ["Media", "/admin/media", ImageIcon],
   ["SEO", "/admin/seo", Search],
   ["Analytics", "/admin/analytics", BarChart3],

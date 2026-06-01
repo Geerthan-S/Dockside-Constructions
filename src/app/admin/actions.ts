@@ -6,6 +6,7 @@ import { redirect } from "next/navigation";
 import { z } from "zod";
 import { requireAdmin, requireManager } from "@/lib/admin";
 import { canUseDatabase, getPrisma } from "@/lib/prisma";
+import { defaultSitePages, getDefaultSitePage, getSitePageRoute } from "@/lib/site-content";
 import { slugify } from "@/lib/slug";
 
 const listFromField = (value: FormDataEntryValue | null) =>
@@ -112,7 +113,7 @@ export async function createPost(formData: FormData) {
       authorId: session.user.id,
     },
   });
-  revalidatePath("/insights");
+  revalidatePath("/admin/blog");
 }
 
 export async function createTestimonial(formData: FormData) {
@@ -130,6 +131,7 @@ export async function createTestimonial(formData: FormData) {
     },
   });
   revalidatePath("/");
+  revalidatePath("/testimonials");
 }
 
 const clientSchema = z.object({
@@ -141,6 +143,28 @@ const clientSchema = z.object({
   testimonial: z.string().optional(),
   featured: z.boolean(),
 });
+
+const sitePageSchema = z.object({
+  title: z.string().min(2),
+  description: z.string().min(10),
+  heroTitle: z.string().min(2),
+  heroDescription: z.string().min(10),
+  heroImage: z.string().min(1),
+  published: z.boolean(),
+});
+
+function parseSectionsJson(value: FormDataEntryValue | null) {
+  try {
+    const raw = String(value ?? "[]");
+    const parsed = JSON.parse(raw);
+    if (!Array.isArray(parsed)) {
+      return null;
+    }
+    return parsed;
+  } catch {
+    return null;
+  }
+}
 
 function clientDataFromForm(formData: FormData) {
   const name = String(formData.get("name") ?? "");
@@ -179,4 +203,72 @@ export async function deleteClient(id: string) {
 
   await getPrisma().client.delete({ where: { id } });
   revalidatePath("/");
+}
+
+export async function updateSitePage(slug: string, formData: FormData) {
+  await requireAdmin();
+  if (!canUseDatabase()) redirect(`/admin/site-content/${slug}?database=missing`);
+
+  const fallback = getDefaultSitePage(slug);
+  const data = sitePageSchema.parse({
+    title: String(formData.get("title") ?? fallback?.title ?? ""),
+    description: String(formData.get("description") ?? fallback?.description ?? ""),
+    heroTitle: String(formData.get("heroTitle") ?? fallback?.heroTitle ?? ""),
+    heroDescription: String(formData.get("heroDescription") ?? fallback?.heroDescription ?? ""),
+    heroImage: String(formData.get("heroImage") ?? fallback?.heroImage ?? ""),
+    published: formData.get("published") === "on",
+  });
+  const sections = parseSectionsJson(formData.get("sections"));
+  if (!sections) redirect(`/admin/site-content/${slug}?error=sections`);
+
+  await getPrisma().sitePage.upsert({
+    where: { slug },
+    update: { ...data, sections },
+    create: { slug, ...data, sections },
+  });
+
+  const route = getSitePageRoute(slug);
+  revalidatePath(route);
+  if (route !== "/") revalidatePath("/");
+  revalidatePath("/admin/site-content");
+  redirect(`/admin/site-content/${slug}?saved=1`);
+}
+
+export async function syncDefaultSitePages() {
+  await requireAdmin();
+  if (!canUseDatabase()) redirect("/admin/site-content?database=missing");
+
+  const db = getPrisma();
+  await db.sitePage.deleteMany({ where: { slug: "insights" } });
+  await Promise.all(
+    defaultSitePages.map((page) =>
+      db.sitePage.upsert({
+        where: { slug: page.slug },
+        update: {
+          title: page.title,
+          description: page.description,
+          heroTitle: page.heroTitle,
+          heroDescription: page.heroDescription,
+          heroImage: page.heroImage,
+          sections: page.sections,
+          published: page.published,
+        },
+        create: {
+          slug: page.slug,
+          title: page.title,
+          description: page.description,
+          heroTitle: page.heroTitle,
+          heroDescription: page.heroDescription,
+          heroImage: page.heroImage,
+          sections: page.sections,
+          published: page.published,
+        },
+      }),
+    ),
+  );
+
+  defaultSitePages.forEach((page) => revalidatePath(getSitePageRoute(page.slug)));
+  revalidatePath("/admin");
+  revalidatePath("/admin/site-content");
+  redirect("/admin/site-content?synced=1");
 }

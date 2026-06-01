@@ -2,15 +2,27 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { industrialImages } from "@/lib/content";
 
-export function CTA() {
+export function CTA({
+  eyebrow = "Project intake",
+  title = "Bring the right technical team into the conversation early.",
+  label = "Request a quote",
+  href = "/get-quote",
+  image = industrialImages.crane,
+}: {
+  eyebrow?: string;
+  title?: string;
+  label?: string;
+  href?: string;
+  image?: string;
+}) {
   return (
-    <section className="premium-cta" style={{ backgroundImage: `url(${industrialImages.crane})` }}>
+    <section className="premium-cta" style={{ backgroundImage: `url(${image})` }}>
       <div>
-        <span>Ready to start your project?</span>
-        <h2>Let&apos;s build something great together</h2>
+        <span>{eyebrow}</span>
+        <h2>{title}</h2>
         <nav>
-          <Link href="/get-quote" className="studio-button studio-button--fill">
-            Get a free quote <ArrowRight className="size-4" aria-hidden="true" />
+          <Link href={href} className="studio-button studio-button--fill">
+            {label} <ArrowRight className="size-4" aria-hidden="true" />
           </Link>
         </nav>
       </div>
